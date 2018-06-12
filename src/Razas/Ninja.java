@@ -11,5 +11,7 @@ package Razas;
  */
 public interface Ninja {
     public void crearEdificacion();
-    public Edificacion getEdificacion();
+    public Recolector getRecolector();
+    public Cuartel getCuartel();
+    public CentroMando getCentroMando();
 }

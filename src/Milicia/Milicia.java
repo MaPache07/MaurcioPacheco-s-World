@@ -3,15 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Razas;
+package Milicia;
 
 /**
  *
  * @author MaPache
  */
-public interface Pirata {
-    public void crearEdificacion();
-    public Recolector getRecolector();
-    public Cuartel getCuartel();
-    public CentroMando getCentroMando();
+public interface Milicia {
+    public void crearTropa();
 }

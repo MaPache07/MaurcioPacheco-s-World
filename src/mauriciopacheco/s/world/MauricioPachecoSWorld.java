@@ -4,9 +4,10 @@
  * and open the template in the editor.
  */
 package mauriciopacheco.s.world;
+import Pirata.FactoryPirata;
+import Razas.*;
 
-/**
- *
+ /*
  * @author MaPache
  */
 public class MauricioPachecoSWorld {
@@ -15,7 +16,10 @@ public class MauricioPachecoSWorld {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        FactoryPirata Pirata = new FactoryPirata();
+        Pirata.getPirata("Comedor").crearEdificacion();
+        Cuartel cuartel = new Cuartel();
+        cuartel = Pirata.getPirata("Comedor").getCuartel();
+        System.out.println(cuartel.getNombre());
     }
-    
 }

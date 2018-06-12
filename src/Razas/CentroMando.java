@@ -9,9 +9,6 @@ package Razas;
  *
  * @author MaPache
  */
-public interface Pirata {
-    public void crearEdificacion();
-    public Recolector getRecolector();
-    public Cuartel getCuartel();
-    public CentroMando getCentroMando();
+public class CentroMando {
+    
 }

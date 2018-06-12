@@ -5,9 +5,9 @@
  */
 package Razas;
 
-import EdificacionMago.*;
-import EdificacionNinja.*;
-import EdificacionPirata.*;
+import Mago.FactoryMago;
+import Ninja.FactoryNinja;
+import Pirata.FactoryPirata;
 
 /**
  *
