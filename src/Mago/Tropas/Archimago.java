@@ -13,16 +13,32 @@ import Milicia.*;
  */
 public class Archimago implements TropaGeneral{
     
-    private Tropa archimago;
+    private static Tropa archimago = new Tropa();
     
     @Override
     public void crearTropa() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        archimago.setNombre("Archimago");
+        archimago.setVida(450);
+        archimago.setAtaque(425);
     }
 
     @Override
     public Tropa getTropa() {
         return this.archimago;
     }
-    
+
+    @Override
+    public int getPrecio1() {
+        return 500;
+    }
+
+    @Override
+    public int getPrecio2() {
+        return 0;
+    }
+
+    @Override
+    public int getPrecio3() {
+        return 1500;
+    }
 }

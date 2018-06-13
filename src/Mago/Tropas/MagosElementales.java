@@ -13,16 +13,32 @@ import Milicia.*;
  */
 public class MagosElementales implements TropaGeneral{
     
-    private Tropa magos;
+    private static Tropa magos = new Tropa();
     
     @Override
     public void crearTropa() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        magos.setNombre("Magos Elementales");
+        magos.setVida(400);
+        magos.setAtaque(400);
     }
 
     @Override
     public Tropa getTropa() {
         return this.magos;
     }
-    
+
+    @Override
+    public int getPrecio1() {
+        return 0;
+    }
+
+    @Override
+    public int getPrecio2() {
+        return 750;
+    }
+
+    @Override
+    public int getPrecio3() {
+        return 1000;
+    }
 }

@@ -30,13 +30,8 @@ public class Tropa implements TropaPlan{
     }
 
     @Override
-    public void setCantxTurno(int cant) {
+    public void setCantTurno(int cant) {
         this.cant = cant;
-    }
-
-    @Override
-    public void setPrecio(int precio) {
-        this.precio = precio;
     }
 
     @Override
@@ -55,12 +50,7 @@ public class Tropa implements TropaPlan{
     }
 
     @Override
-    public int getCantxTurno() {
+    public int getCantTurno() {
         return this.cant;
-    }
-
-    @Override
-    public int getPrecio() {
-        return this.precio;
     }
 }

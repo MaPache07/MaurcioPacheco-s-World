@@ -13,16 +13,32 @@ import Milicia.*;
  */
 public class Bijuu implements TropaGeneral{
     
-    private Tropa bijuu;
+    private static Tropa bijuu = new Tropa();
     
     @Override
     public void crearTropa() {
-        bijuu.setAtaque(10);
-        
+        bijuu.setNombre("Bijuu");
+        bijuu.setVida(575);
+        bijuu.setAtaque(275);
     }
 
     @Override
     public Tropa getTropa() {
         return this.bijuu;
+    }
+
+    @Override
+    public int getPrecio1() {
+        return 750;
+    }
+
+    @Override
+    public int getPrecio2() {
+        return 1000;
+    }
+
+    @Override
+    public int getPrecio3() {
+        return 1250;
     }
 }

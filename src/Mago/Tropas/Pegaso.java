@@ -13,16 +13,32 @@ import Milicia.*;
  */
 public class Pegaso implements TropaGeneral{
     
-    private Tropa pegaso;
+    private static Tropa pegaso = new Tropa();
     
     @Override
     public void crearTropa() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        pegaso.setNombre("Pegaso");
+        pegaso.setVida(475);
+        pegaso.setAtaque(450);
     }
 
     @Override
     public Tropa getTropa() {
         return this.pegaso;
     }
-    
+
+    @Override
+    public int getPrecio1() {
+        return 500;
+    }
+
+    @Override
+    public int getPrecio2() {
+        return 1000;
+    }
+
+    @Override
+    public int getPrecio3() {
+        return 0;
+    }
 }

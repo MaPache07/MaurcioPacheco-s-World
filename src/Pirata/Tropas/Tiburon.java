@@ -13,16 +13,32 @@ import Milicia.*;
  */
 public class Tiburon implements TropaGeneral{
     
-    private Tropa tiburon;
+    private static Tropa tiburon =  new Tropa();
     
     @Override
     public void crearTropa() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        tiburon.setNombre("Tiburon");
+        tiburon.setVida(675);
+        tiburon.setAtaque(350);
     }
 
     @Override
     public Tropa getTropa() {
         return this.tiburon;
     }
-    
+
+    @Override
+    public int getPrecio1() {
+        return 500;
+    }
+
+    @Override
+    public int getPrecio2() {
+        return 1000;
+    }
+
+    @Override
+    public int getPrecio3() {
+        return 0;
+    }
 }

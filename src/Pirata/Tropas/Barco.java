@@ -13,16 +13,32 @@ import Milicia.*;
  */
 public class Barco implements TropaGeneral{
     
-    private Tropa barco;
+    private static Tropa barco =  new Tropa();
     
     @Override
     public void crearTropa() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        barco.setNombre("Barco");
+        barco.setVida(675);
+        barco.setAtaque(375);
     }
 
     @Override
     public Tropa getTropa() {
         return this.barco;
     }
-    
+
+    @Override
+    public int getPrecio1() {
+        return 750;
+    }
+
+    @Override
+    public int getPrecio2() {
+        return 1000;
+    }
+
+    @Override
+    public int getPrecio3() {
+        return 1250;
+    }
 }

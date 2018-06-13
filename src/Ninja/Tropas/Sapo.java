@@ -13,16 +13,32 @@ import Milicia.*;
  */
 public class Sapo implements TropaGeneral{
     
-    private Tropa Sapo;
+    private static Tropa Sapo = new Tropa();
     
     @Override
     public void crearTropa() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Sapo.setNombre("Sapo Gigante");
+        Sapo.setVida(575);
+        Sapo.setAtaque(250);
     }
 
     @Override
     public Tropa getTropa() {
         return this.Sapo;
     }
-    
+
+    @Override
+    public int getPrecio1() {
+        return 500;
+    }
+
+    @Override
+    public int getPrecio2() {
+        return 1000;
+    }
+
+    @Override
+    public int getPrecio3() {
+        return 0;
+    }
 }

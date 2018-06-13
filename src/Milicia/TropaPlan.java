@@ -13,11 +13,9 @@ public interface TropaPlan {
     public void setNombre(String nombre);
     public void setVida(int vida);
     public void setAtaque(int ataque);
-    public void setCantxTurno(int cant);
-    public void setPrecio(int precio);
+    public void setCantTurno(int cant);
     public String getNombre();
     public int getVida();
     public int getAtaque();
-    public int getCantxTurno();
-    public int getPrecio();
+    public int getCantTurno();
 }

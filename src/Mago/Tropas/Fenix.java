@@ -13,18 +13,32 @@ import Milicia.*;
  */
 public class Fenix implements TropaGeneral{
     
-    private Tropa fenix;
+    private static Tropa fenix = new Tropa();
     
     @Override
     public void crearTropa() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        fenix.setNombre("Fenix");
+        fenix.setVida(475);
+        fenix.setAtaque(475);
     }
 
     @Override
     public Tropa getTropa() {
         return this.fenix;
     }
-    
-    
-    
+
+    @Override
+    public int getPrecio1() {
+        return 750;
+    }
+
+    @Override
+    public int getPrecio2() {
+        return 1000;
+    }
+
+    @Override
+    public int getPrecio3() {
+        return 1250;
+    }
 }

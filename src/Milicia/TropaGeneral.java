@@ -12,4 +12,7 @@ package Milicia;
 public interface TropaGeneral {
     public void crearTropa();
     public Tropa getTropa();
+    public int getPrecio1();
+    public int getPrecio2();
+    public int getPrecio3();
 }

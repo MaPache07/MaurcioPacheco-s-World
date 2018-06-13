@@ -13,16 +13,32 @@ import Milicia.*;
  */
 public class Hokage implements TropaGeneral{
     
-    private Tropa Hokage;
+    private static Tropa Hokage = new Tropa();
     
     @Override
     public void crearTropa() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Hokage.setNombre("Hokage");
+        Hokage.setVida(550);
+        Hokage.setAtaque(225);
     }
 
     @Override
     public Tropa getTropa() {
         return this.Hokage;
     }
-    
+
+    @Override
+    public int getPrecio1() {
+        return 500;
+    }
+
+    @Override
+    public int getPrecio2() {
+        return 0;
+    }
+
+    @Override
+    public int getPrecio3() {
+        return 1500;
+    }
 }

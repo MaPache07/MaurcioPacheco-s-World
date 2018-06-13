@@ -13,16 +13,32 @@ import Milicia.*;
  */
 public class Yonkou implements TropaGeneral{
     
-    private Tropa yonkou;
+    private static Tropa yonkou = new Tropa();
     
     @Override
     public void crearTropa() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        yonkou.setNombre("Yonkou");
+        yonkou.setVida(650);
+        yonkou.setAtaque(325);
     }
 
     @Override
     public Tropa getTropa() {
         return this.yonkou;
     }
-    
+
+    @Override
+    public int getPrecio1() {
+        return 500;
+    }
+
+    @Override
+    public int getPrecio2() {
+        return 0;
+    }
+
+    @Override
+    public int getPrecio3() {
+        return 1500;
+    }
 }
