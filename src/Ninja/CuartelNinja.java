@@ -54,5 +54,10 @@ public class CuartelNinja implements Ninja{
     public int getPrecio3() {
         return 5000;
     }
+
+    @Override
+    public String getNombre() {
+        return "Cuartel ninja";
+    }
     
 }

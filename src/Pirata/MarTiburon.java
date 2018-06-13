@@ -54,5 +54,10 @@ public class MarTiburon implements Pirata{
     public int getPrecio3() {
         return 4500;
     }
+
+    @Override
+    public String getNombre() {
+        return "Mar de tiburones";
+    }
     
 }

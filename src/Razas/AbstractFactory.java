@@ -10,7 +10,7 @@ package Razas;
  * @author MaPache
  */
 public interface AbstractFactory {
-    Ninja getNinja(String type);
-    Mago getMago(String type);
-    Pirata getPirata(String type);
+    Ninja getNinja(int type);
+    Mago getMago(int type);
+    Pirata getPirata(int type);
 }

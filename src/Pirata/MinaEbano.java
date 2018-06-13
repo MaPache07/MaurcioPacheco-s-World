@@ -54,5 +54,10 @@ public class MinaEbano implements Pirata{
     public int getPrecio3() {
         return 0;
     }
+
+    @Override
+    public String getNombre() {
+        return "Mina de ebano";
+    }
     
 }

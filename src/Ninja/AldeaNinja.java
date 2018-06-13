@@ -17,8 +17,8 @@ public class AldeaNinja implements Ninja{
     
     @Override
     public void crearEdificacion() {
-        AldeaNinja.setNombre("Arbol de vida");
-        AldeaNinja.setVida(1100);
+        AldeaNinja.setNombre("Aldea Ninja");
+        AldeaNinja.setVida(1300);
         AldeaNinja.setCapacidad1(3000);
         AldeaNinja.setCapacidad2(5000);
         AldeaNinja.setCapacidad3(10000);
@@ -80,5 +80,10 @@ public class AldeaNinja implements Ninja{
                 return 5365;
         }
         return 0;
+    }
+
+    @Override
+    public String getNombre() {
+        return "Aldea ninja";
     }
 }

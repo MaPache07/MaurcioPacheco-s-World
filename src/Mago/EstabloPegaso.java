@@ -54,5 +54,10 @@ public class EstabloPegaso implements Mago{
     public int getPrecio3() {
         return 4500;
     }
+
+    @Override
+    public String getNombre() {
+        return "Establo de pegasos";
+    }
     
 }

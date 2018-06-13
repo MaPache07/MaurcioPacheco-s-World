@@ -54,5 +54,10 @@ public class Comedor implements Pirata{
     public int getPrecio3() {
         return 5000;
     }
+
+    @Override
+    public String getNombre() {
+        return "Comedor";
+    }
     
 }

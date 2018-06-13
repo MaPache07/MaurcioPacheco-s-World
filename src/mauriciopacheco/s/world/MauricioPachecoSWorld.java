@@ -28,7 +28,7 @@ public class MauricioPachecoSWorld {
         cuartel1 = Pirata.getPirata("Comedor").getCuartel();
         System.out.println(cuartel1.getVida());*/
         
-        /*Menu menu = new Menu();
-        menu.Inicio();*/
+        Menu menu = new Menu();
+        menu.Inicio();
     }
 }

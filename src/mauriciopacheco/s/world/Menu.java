@@ -15,7 +15,9 @@ import java.util.Scanner;
  */
 public class Menu {
     
-    ArrayList<AbstractFactory> razas = new ArrayList<>();
+    Jugador jugador1 = new Jugador();
+    Jugador jugador2 = new Jugador();
+    //ArrayList<AbstractFactory> razas = new ArrayList<>();
     
     public void Inicio(){
         
@@ -32,6 +34,7 @@ public class Menu {
             switch(o){
                 case 1:
                     Orden();
+                    flag = false;
                     break;
                 case 2:
                     Instruccion();
@@ -62,12 +65,87 @@ public class Menu {
     public void Orden() {
         int turno = (int) ((Math.random()*2) + 1);
         EscogerRaza();
+        Juego(turno);
     }
     
     public void EscogerRaza(){
-        System.out.println("ES EL MOMENTO DE ESCOJER UNA RAZA");
-        System.out.println("JUGADOR 1");
-        
+        System.out.println("|----------ES EL MOMENTO DE ESCOJER UNA RAZA----------|");
+        System.out.println("");
+        System.out.println("|----------------------JUGADOR 1----------------------|");
+        jugador1.Razas();
+        System.out.println("|----------------------JUGADOR 2----------------------|");
+        jugador2.Razas();
     }
     
+    public void Juego(int jugador){
+        boolean juego = true;
+        int fase = 1;
+        while(juego){
+            boolean turno1 = true, turno2 = true;
+            System.out.println("");
+            System.out.println("|-----------------------FASE " + fase + "-----------------------|");
+            while(turno1 || turno2){
+                System.out.println("");
+                System.out.println("|----------------TURNO DEL JUGADOR #" + jugador + "----------------|");
+                while(jugador == 1){
+                    int o1;
+                    Scanner input1 = new Scanner(System.in);
+                    System.out.println("");
+                    System.out.println("|----------------------------------------------------|");
+                    System.out.println("Elige una de las siguientes acciones:");
+                    System.out.println("1. Edificios");
+                    System.out.println("2. Entrenar tropas / construir vehiculos");
+                    System.out.println("3. Atacar / Defender");
+                    System.out.println("4. Terminar");
+                    o1 = input1.nextInt();
+                    switch(o1){
+                        case 1:
+                            jugador1.Edificacion();
+                            break;
+                        case 2:
+                            
+                            break;
+                        case 3:
+                            
+                            break;
+                            
+                        case 4:
+                            
+                            break;
+                        default:
+                            System.out.println("No ingreso una opcion valida");
+                            break;
+                    }
+                }
+                while(jugador == 2){
+                    int o2;
+                    Scanner input2 = new Scanner(System.in);
+                    System.out.println("|----------------------------------------------------|");
+                    System.out.println("Elige una de las siguientes acciones:");
+                    System.out.println("1. Edificios");
+                    System.out.println("2. Entrenar tropas / construir vehiculos");
+                    System.out.println("3. Atacar / Defender");
+                    System.out.println("4. Terminar");
+                    o2 = input2.nextInt();
+                    switch(o2){
+                        case 1:
+                            jugador2.Edificacion();
+                            break;
+                        case 2:
+                            
+                            break;
+                        case 3:
+                            
+                            break;
+                        case 4:
+                            
+                            break;
+                        default:
+                            System.out.println("No ingreso una opcion valida");
+                            break;
+                    }
+                }
+            }
+        }
+    }
 }

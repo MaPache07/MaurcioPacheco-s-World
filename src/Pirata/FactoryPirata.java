@@ -14,30 +14,32 @@ import Razas.*;
 public class FactoryPirata implements AbstractFactory{
 
     @Override
-    public Ninja getNinja(String type) {
+    public Ninja getNinja(int type) {
         return null;
     }
 
     @Override
-    public Mago getMago(String type) {
+    public Mago getMago(int type) {
         return null;
     }
 
     @Override
-    public Pirata getPirata(String type) {
+    public Pirata getPirata(int type) {
         switch(type){
-            case ("GeneradorKairoseki"):
+            case (1):
                 return new GeneradorKairoseki();
-            case ("MinaOro"):
+            case (2):
                 return new MinaOro();
-            case ("MinaEbano"):
+            case (3):
                 return new MinaEbano();
-            case ("Comedor"):
+            case (4):
                 return new Comedor();
-            case ("BarcoPirata"):
+            case (5):
                 return new BarcoPirata();
-            case ("MarTiburon"):
+            case (6):
                 return new MarTiburon();
+            case (7):
+                return new PuertoPirata();
         }
         return null;
     }

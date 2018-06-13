@@ -42,17 +42,22 @@ public class MinaOro implements Pirata{
 
     @Override
     public int getPrecio1() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return 1250;
     }
 
     @Override
     public int getPrecio2() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return 0;
     }
 
     @Override
     public int getPrecio3() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return 4000;
+    }
+
+    @Override
+    public String getNombre() {
+        return "Mina de oro";
     }
     
 }

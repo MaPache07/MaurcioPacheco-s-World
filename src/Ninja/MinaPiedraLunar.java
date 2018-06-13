@@ -54,5 +54,10 @@ public class MinaPiedraLunar implements Ninja{
     public int getPrecio3() {
         return 4000;
     }
+
+    @Override
+    public String getNombre() {
+        return "Mina de piedra lunar";
+    }
     
 }

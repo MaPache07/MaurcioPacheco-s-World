@@ -54,5 +54,10 @@ public class MinaMetal implements Ninja{
     public int getPrecio3() {
         return 0;
     }
+
+    @Override
+    public String getNombre() {
+        return "Mina de metal";
+    }
     
 }

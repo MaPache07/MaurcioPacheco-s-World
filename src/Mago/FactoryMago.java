@@ -14,33 +14,33 @@ import Razas.*;
 public class FactoryMago implements AbstractFactory {
 
     @Override
-    public Ninja getNinja(String type) {
+    public Ninja getNinja(int type) {
         return null;
     }
 
     @Override
-    public Mago getMago(String type) {
+    public Mago getMago(int type) {
         switch (type){
-            case ("CentroMando"):
-                
-            case ("RecolectorEter"):
-                return new RecolectorEter();
-            case ("GeneradorMagia"):
+            case (1):
                 return new GeneradorMagia();
-            case ("RecolectorElixir"):
+            case (2):
+                return new RecolectorEter();
+            case (3):
                 return new RecolectorElixir();
-            case ("SalaMagos"):
+            case (4):
                 return new SalaMagos();
-            case ("NidoFeix"):
-                return new NidoFenix();
-            case ("EstabloPegaso"):
+            case (5):
                 return new EstabloPegaso();
+            case (6):
+                return new NidoFenix();
+            case (7):
+                return new ArbolVida();
         }
         return null;
     }
 
     @Override
-    public Pirata getPirata(String type) {
+    public Pirata getPirata(int type) {
         return null;
     }
     

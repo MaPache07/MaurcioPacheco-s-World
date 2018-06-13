@@ -54,5 +54,10 @@ public class CuevaBijus implements Ninja{
     public int getPrecio3() {
         return 0;
     }
+
+    @Override
+    public String getNombre() {
+        return "Cueva de Bijuus";
+    }
     
 }

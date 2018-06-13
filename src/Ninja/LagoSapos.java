@@ -54,5 +54,10 @@ public class LagoSapos implements Ninja{
     public int getPrecio3() {
         return 4500;
     }
+
+    @Override
+    public String getNombre() {
+        return "Lago de sapos";
+    }
     
 }

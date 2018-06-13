@@ -54,5 +54,10 @@ public class RecolectorElixir implements Mago{
     public int getPrecio3() {
         return 0;
     }
+
+    @Override
+    public String getNombre() {
+        return "Recolector de elixir";
+    }
     
 }

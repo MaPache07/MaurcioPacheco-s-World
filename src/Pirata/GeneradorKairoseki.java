@@ -54,5 +54,10 @@ public class GeneradorKairoseki implements Pirata{
     public int getPrecio3() {
         return 5000;
     }
+
+    @Override
+    public String getNombre() {
+        return "Generador de Kairoseki";
+    }
     
 }

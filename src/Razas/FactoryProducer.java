@@ -14,7 +14,8 @@ import Pirata.FactoryPirata;
  * @author MaPache
  */
 public class FactoryProducer {
-    public static AbstractFactory getRaza(String type){
+    
+    public AbstractFactory getRaza(String type){
         switch(type){
             case "Ninja":
                 return new FactoryNinja();

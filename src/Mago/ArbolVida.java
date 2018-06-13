@@ -81,4 +81,9 @@ public class ArbolVida implements Mago{
         }
         return 0;
     }
+
+    @Override
+    public String getNombre() {
+        return "Arbol de vida";
+    }
 }

@@ -54,5 +54,10 @@ public class RecolectorEter implements Mago{
     public int getPrecio3() {
         return 4000;
     }
+
+    @Override
+    public String getNombre() {
+        return "Recolector de eter";
+    }
     
 }

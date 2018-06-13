@@ -54,5 +54,10 @@ public class SalaMagos implements Mago{
     public int getPrecio3() {
         return 5000;
     }
+
+    @Override
+    public String getNombre() {
+        return "Sala de magos";
+    }
     
 }

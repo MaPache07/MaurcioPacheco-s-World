@@ -17,8 +17,8 @@ public class PuertoPirata implements Pirata{
     
     @Override
     public void crearEdificacion() {
-        PuertoPirata.setNombre("Arbol de vida");
-        PuertoPirata.setVida(1100);
+        PuertoPirata.setNombre("Puerto Pirata");
+        PuertoPirata.setVida(1500);
         PuertoPirata.setCapacidad1(3000);
         PuertoPirata.setCapacidad2(5000);
         PuertoPirata.setCapacidad3(10000);
@@ -80,5 +80,10 @@ public class PuertoPirata implements Pirata{
                 return 5365;
         }
         return 0;
+    }
+
+    @Override
+    public String getNombre() {
+        return "Puerto Pirata";
     }
 }

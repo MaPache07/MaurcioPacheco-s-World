@@ -54,5 +54,10 @@ public class NidoFenix implements Mago{
     public int getPrecio3() {
         return 0;
     }
+
+    @Override
+    public String getNombre() {
+        return "Nido de fenix";
+    }
     
 }
