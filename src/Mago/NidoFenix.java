@@ -13,7 +13,7 @@ import Razas.*;
  */
 public class NidoFenix implements Mago{
     
-    private Cuartel NidoFenix;
+    private static Cuartel NidoFenix = new Cuartel();
     
     @Override
     public void crearEdificacion() {

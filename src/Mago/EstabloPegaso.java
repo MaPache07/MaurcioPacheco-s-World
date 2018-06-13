@@ -13,15 +13,15 @@ import Razas.*;
  */
 public class EstabloPegaso implements Mago{
     
-    private Cuartel EstabloPegaso;
+    private static Cuartel EstabloPegaso = new Cuartel();
     
     @Override
     public void crearEdificacion() {
         EstabloPegaso.setNombre("Establo de Pegasos");
-        EstabloPegaso.setVida(85);
+        EstabloPegaso.setVida(800);
         EstabloPegaso.setCapacidad(10);
         EstabloPegaso.setCantidad(0);
-        EstabloPegaso.setCantxTurno(0);
+        EstabloPegaso.setCantxTurno(2);
     }
 
     @Override

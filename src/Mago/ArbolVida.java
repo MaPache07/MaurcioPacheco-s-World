@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Pirata;
+package Mago;
 
 import Razas.*;
 
@@ -11,17 +11,21 @@ import Razas.*;
  *
  * @author MaPache
  */
-public class MarTiburon implements Pirata{
+public class ArbolVida implements Mago{
     
-    private static Cuartel MarTiburon = new Cuartel();
+    private static CentroMando ArbolVida = new CentroMando();
     
     @Override
     public void crearEdificacion() {
-        MarTiburon.setNombre("Mar de Tiburones");
-        MarTiburon.setVida(155);
-        MarTiburon.setCapacidad(10);
-        MarTiburon.setCantidad(0);
-        MarTiburon.setCantxTurno(0);
+        ArbolVida.setNombre("Arbol de vida");
+        ArbolVida.setVida(0);
+        ArbolVida.setCapacidad1(3000);
+        ArbolVida.setCapacidad2(5000);
+        ArbolVida.setCapacidad3(10000);
+        ArbolVida.setCantidad1(0);
+        ArbolVida.setCantidad2(0);
+        ArbolVida.setCantidad3(0);
+        ArbolVida.setNivel(1);
     }
 
     @Override
@@ -31,12 +35,12 @@ public class MarTiburon implements Pirata{
 
     @Override
     public Cuartel getCuartel() {
-        return this.MarTiburon;
+        return null;
     }
 
     @Override
     public CentroMando getCentroMando() {
-        return null;
+        return this.ArbolVida;
     }
     
 }

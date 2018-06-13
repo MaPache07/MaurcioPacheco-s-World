@@ -17,7 +17,7 @@ public class Cuartel implements CuartelPlan{
     SwitchMago Sm = new SwitchMago();
     
     private String nombre;
-    private int vida, capacidad, cantidad, cant; 
+    private int vida, capacidad, cantidad, cant, turn, precio1, precio2, precio3;
     
     @Override
     public void setNombre(String nombre) {
@@ -43,7 +43,27 @@ public class Cuartel implements CuartelPlan{
     public void setCantxTurno(int cant) {
         this.cant = cant;
     }
+    
+    @Override
+    public void setCantTurn(int turn) {
+        this.turn = turn;
+    }
+    
+    @Override
+    public void setPrecio1(int precio) {
+        this.precio1 = precio;
+    }
 
+    @Override
+    public void setPrecio2(int precio) {
+        this.precio2 = precio;
+    }
+
+    @Override
+    public void setPrecio3(int precio) {
+        this.precio3 = precio;
+    }
+    
     @Override
     public String getNombre() {
         return this.nombre;
@@ -68,7 +88,27 @@ public class Cuartel implements CuartelPlan{
     public int getCantxTurno() {
         return this.cant;
     }
+    
+    @Override
+    public int getCantTurn() {
+        return this.turn;
+    }
+    
+    @Override
+    public int getPrecio1() {
+        return this.precio1;
+    }
 
+    @Override
+    public int getPrecio2() {
+        return this.precio2;
+    }
+
+    @Override
+    public int getPrecio3() {
+        return this.precio3;
+    }
+    
     //Estos Switch retornan la tropa deseada, hay que ver como se aprovecha eso
     
     @Override

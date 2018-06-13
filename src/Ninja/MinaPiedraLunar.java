@@ -13,7 +13,7 @@ import Razas.*;
  */
 public class MinaPiedraLunar implements Ninja{
     
-    private Recolector MinaPiedraLunar;
+    private static Recolector MinaPiedraLunar = new Recolector();
     
     @Override
     public void crearEdificacion() {

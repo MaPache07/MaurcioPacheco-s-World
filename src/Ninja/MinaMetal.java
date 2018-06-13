@@ -13,7 +13,7 @@ import Razas.*;
  */
 public class MinaMetal implements Ninja{
     
-    private Recolector MinaMetal;
+    private static Recolector MinaMetal = new Recolector();
     
     @Override
     public void crearEdificacion() {

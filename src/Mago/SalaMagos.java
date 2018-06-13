@@ -13,7 +13,7 @@ import Razas.*;
  */
 public class SalaMagos implements Mago{
     
-    private Cuartel SalaMagos;
+    private static Cuartel SalaMagos = new Cuartel();
     
     @Override
     public void crearEdificacion() {

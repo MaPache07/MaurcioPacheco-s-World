@@ -13,7 +13,7 @@ import Razas.*;
  */
 public class MinaOro implements Pirata{
     
-    private Recolector MinaOro;
+    private static Recolector MinaOro = new Recolector();
     
     @Override
     public void crearEdificacion() {

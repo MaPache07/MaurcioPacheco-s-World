@@ -13,7 +13,7 @@ import Razas.*;
  */
 public class CuevaBijus implements Ninja{
     
-    private Cuartel CuevaBijus;
+    private static Cuartel CuevaBijus = new Cuartel();
     
     @Override
     public void crearEdificacion() {

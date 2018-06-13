@@ -15,9 +15,11 @@ public interface RecolectorPlan {
     public void setCapacidad(int capacidad);
     public void setCantidad(int cantidad);
     public void setCantxTurno(int cant);
+    public void setCantTurn(int turn);
     public String getNombre();
     public int getVida();
     public int getCapacidad();
     public int getCantidad();
     public int getCantxTurno();
+    public int getCantTurn();
 }

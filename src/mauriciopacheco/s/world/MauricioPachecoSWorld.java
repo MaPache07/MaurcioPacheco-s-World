@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package mauriciopacheco.s.world;
-import Pirata.FactoryPirata;
+import Pirata.*;
 import Razas.*;
 
  /*
@@ -16,10 +16,19 @@ public class MauricioPachecoSWorld {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        FactoryPirata Pirata = new FactoryPirata();
+        /*FactoryPirata Pirata = new FactoryPirata();
         Pirata.getPirata("Comedor").crearEdificacion();
         Cuartel cuartel = new Cuartel();
         cuartel = Pirata.getPirata("Comedor").getCuartel();
-        System.out.println(cuartel.getNombre());
+        cuartel.setVida(cuartel.getVida()-50);
+        System.out.println(cuartel.getVida());
+        Recolector recolector = new Recolector();
+        Pirata.getPirata("Comedor").crearEdificacion();
+        Cuartel cuartel1 = new Cuartel();
+        cuartel1 = Pirata.getPirata("Comedor").getCuartel();
+        System.out.println(cuartel1.getVida());*/
+        
+        /*Menu menu = new Menu();
+        menu.Inicio();*/
     }
 }

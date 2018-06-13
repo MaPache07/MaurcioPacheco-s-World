@@ -12,7 +12,7 @@ package Razas;
 public class Recolector implements RecolectorPlan{
     
     private String nombre;
-    private int vida, capacidad, cantidad, cant;
+    private int vida, capacidad, cantidad, cant, turn;
     
     @Override
     public void setNombre(String nombre) {
@@ -37,6 +37,11 @@ public class Recolector implements RecolectorPlan{
     @Override
     public void setCantxTurno(int cant) {
         this.cant = cant;
+    }
+    
+    @Override
+    public void setCantTurn(int turn) {
+        this.turn = turn;
     }
 
     @Override
@@ -63,5 +68,9 @@ public class Recolector implements RecolectorPlan{
     public int getCantxTurno() {
         return this.cant;
     }
-    
+
+    @Override
+    public int getCantTurn() {
+        return this.turn;
+    }
 }

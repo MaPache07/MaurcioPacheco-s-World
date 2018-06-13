@@ -13,7 +13,7 @@ import Razas.*;
  */
 public class PuertoPirata implements Pirata{
     
-    private Cuartel PuertoPirata;
+    private static Cuartel PuertoPirata = new Cuartel();
     
     @Override
     public void crearEdificacion() {

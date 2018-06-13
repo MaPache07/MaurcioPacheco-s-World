@@ -13,7 +13,7 @@ import Razas.*;
  */
 public class GeneradorKairoseki implements Pirata{
     
-    private Recolector GeneradorKairoseki;
+    private static Recolector GeneradorKairoseki = new Recolector();
     
     @Override
     public void crearEdificacion() {

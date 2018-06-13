@@ -13,7 +13,7 @@ import Razas.*;
  */
 public class GeneradorChakra implements Ninja{
     
-    private Recolector RecolectorChakra;
+    private static Recolector RecolectorChakra = new Recolector();
     
     @Override
     public void crearEdificacion() {

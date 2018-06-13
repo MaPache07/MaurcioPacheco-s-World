@@ -13,7 +13,7 @@ import Razas.*;
  */
 public class RecolectorEter implements Mago{
     
-    private Recolector RecolectorEter;
+    private static Recolector RecolectorEter = new Recolector();
     
     @Override
     public void crearEdificacion() {

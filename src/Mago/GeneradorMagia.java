@@ -13,7 +13,7 @@ import Razas.*;
  */
 public class GeneradorMagia implements Mago{
     
-    private Recolector GeneradorMagia;
+    private static Recolector GeneradorMagia = new Recolector();
     
     @Override
     public void crearEdificacion() {

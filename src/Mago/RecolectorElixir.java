@@ -13,7 +13,7 @@ import Razas.*;
  */
 public class RecolectorElixir implements Mago{
     
-    private Recolector RecolectorElixir;
+    private static Recolector RecolectorElixir = new Recolector();
     
     @Override
     public void crearEdificacion() {

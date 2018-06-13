@@ -13,7 +13,7 @@ import Razas.*;
  */
 public class LagoSapos implements Ninja{
     
-    private Cuartel LagoSapos;
+    private static Cuartel LagoSapos = new Cuartel();
     
     @Override
     public void crearEdificacion() {

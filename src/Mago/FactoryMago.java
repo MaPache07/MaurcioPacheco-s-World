@@ -21,6 +21,8 @@ public class FactoryMago implements AbstractFactory {
     @Override
     public Mago getMago(String type) {
         switch (type){
+            case ("CentroMando"):
+                
             case ("RecolectorEter"):
                 return new RecolectorEter();
             case ("GeneradorMagia"):

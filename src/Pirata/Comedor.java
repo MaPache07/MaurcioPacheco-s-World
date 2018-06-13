@@ -15,10 +15,6 @@ public class Comedor implements Pirata{
     
     private static Cuartel Comedor = new Cuartel();
     
-    public static Cuartel Chopper(){
-        return Comedor;
-    }
-    
     @Override
     public void crearEdificacion() {
         Comedor.setNombre("Comedor");
