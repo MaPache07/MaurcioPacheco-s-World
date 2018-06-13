@@ -22,6 +22,7 @@ public class GeneradorMagia implements Mago{
         GeneradorMagia.setCapacidad(1500);
         GeneradorMagia.setCantidad(0);
         GeneradorMagia.setCantxTurno(500);
+        GeneradorMagia.setCantTurn(2);
     }
 
     @Override

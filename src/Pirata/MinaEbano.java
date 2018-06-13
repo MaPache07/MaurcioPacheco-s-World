@@ -22,6 +22,7 @@ public class MinaEbano implements Pirata{
         MinaEbano.setCapacidad(7500);
         MinaEbano.setCantidad(0);
         MinaEbano.setCantxTurno(2500);
+        MinaEbano.setCantTurn(3);
     }
 
     @Override

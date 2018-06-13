@@ -22,6 +22,7 @@ public class RecolectorEter implements Mago{
         RecolectorEter.setCapacidad(3000);
         RecolectorEter.setCantidad(0);
         RecolectorEter.setCantxTurno(1000);
+        RecolectorEter.setCantTurn(2);
     }
 
     @Override

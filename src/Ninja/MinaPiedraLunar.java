@@ -22,6 +22,7 @@ public class MinaPiedraLunar implements Ninja{
         MinaPiedraLunar.setCapacidad(3000);
         MinaPiedraLunar.setCantidad(0);
         MinaPiedraLunar.setCantxTurno(1000);
+        MinaPiedraLunar.setCantTurn(1);
     }
 
     @Override

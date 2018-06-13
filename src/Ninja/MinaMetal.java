@@ -22,6 +22,7 @@ public class MinaMetal implements Ninja{
         MinaMetal.setCapacidad(7500);
         MinaMetal.setCantidad(0);
         MinaMetal.setCantxTurno(2500);
+        MinaMetal.setCantTurn(1);
     }
 
     @Override

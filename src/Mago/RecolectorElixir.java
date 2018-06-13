@@ -22,6 +22,7 @@ public class RecolectorElixir implements Mago{
         RecolectorElixir.setCapacidad(7500);
         RecolectorElixir.setCantidad(0);
         RecolectorElixir.setCantxTurno(2500);
+        RecolectorElixir.setCantTurn(2);
     }
 
     @Override

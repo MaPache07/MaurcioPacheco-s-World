@@ -13,15 +13,16 @@ import Razas.*;
  */
 public class BarcoPirata implements Pirata{
     
-    private static Cuartel PuertoPirata = new Cuartel();
+    private static Cuartel BarcoPirata = new Cuartel();
     
     @Override
     public void crearEdificacion() {
-        PuertoPirata.setNombre("Barco Pirata");
-        PuertoPirata.setVida(1300);
-        PuertoPirata.setCapacidad(10);
-        PuertoPirata.setCantidad(0);
-        PuertoPirata.setCantxTurno(4);
+        BarcoPirata.setNombre("Barco Pirata");
+        BarcoPirata.setVida(1300);
+        BarcoPirata.setCapacidad(10);
+        BarcoPirata.setCantidad(0);
+        BarcoPirata.setCantxTurno(4);
+        BarcoPirata.setCantTurn(4);
     }
 
     @Override
@@ -31,7 +32,7 @@ public class BarcoPirata implements Pirata{
 
     @Override
     public Cuartel getCuartel() {
-        return this.PuertoPirata;
+        return this.BarcoPirata;
     }
 
     @Override

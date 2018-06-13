@@ -22,6 +22,7 @@ public class MarTiburon implements Pirata{
         MarTiburon.setCapacidad(10);
         MarTiburon.setCantidad(0);
         MarTiburon.setCantxTurno(3);
+        MarTiburon.setCantTurn(3);
     }
 
     @Override

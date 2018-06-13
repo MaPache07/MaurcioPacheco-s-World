@@ -22,6 +22,7 @@ public class GeneradorKairoseki implements Pirata{
         GeneradorKairoseki.setCapacidad(1500);
         GeneradorKairoseki.setCantidad(0);
         GeneradorKairoseki.setCantxTurno(500);
+        GeneradorKairoseki.setCantTurn(3);
     }
 
     @Override

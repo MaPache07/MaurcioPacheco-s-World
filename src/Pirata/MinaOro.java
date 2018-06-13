@@ -22,6 +22,7 @@ public class MinaOro implements Pirata{
         MinaOro.setCapacidad(0);
         MinaOro.setCantidad(0);
         MinaOro.setCantxTurno(0);
+        MinaOro.setCantTurn(3);
     }
 
     @Override

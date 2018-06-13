@@ -13,20 +13,21 @@ import Razas.*;
  */
 public class GeneradorChakra implements Ninja{
     
-    private static Recolector RecolectorChakra = new Recolector();
+    private static Recolector GeneradorChakra = new Recolector();
     
     @Override
     public void crearEdificacion() {
-        RecolectorChakra.setNombre("Generador de Chakra");
-        RecolectorChakra.setVida(1000);
-        RecolectorChakra.setCapacidad(1500);
-        RecolectorChakra.setCantidad(0);
-        RecolectorChakra.setCantxTurno(500);
+        GeneradorChakra.setNombre("Generador de Chakra");
+        GeneradorChakra.setVida(1000);
+        GeneradorChakra.setCapacidad(1500);
+        GeneradorChakra.setCantidad(0);
+        GeneradorChakra.setCantxTurno(500);
+        GeneradorChakra.setCantTurn(1);
     }
 
     @Override
     public Recolector getRecolector() {
-        return this.RecolectorChakra;
+        return this.GeneradorChakra;
     }
 
     @Override

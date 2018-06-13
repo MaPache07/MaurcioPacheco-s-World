@@ -22,6 +22,7 @@ public class LagoSapos implements Ninja{
         LagoSapos.setCapacidad(10);
         LagoSapos.setCantidad(0);
         LagoSapos.setCantxTurno(1);
+        LagoSapos.setCantTurn(1);
     }
 
     @Override
