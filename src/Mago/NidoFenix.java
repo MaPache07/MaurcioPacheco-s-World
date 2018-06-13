@@ -18,10 +18,10 @@ public class NidoFenix implements Mago{
     @Override
     public void crearEdificacion() {
         NidoFenix.setNombre("Nido de Fenix");
-        NidoFenix.setVida(85);
+        NidoFenix.setVida(900);
         NidoFenix.setCapacidad(10);
         NidoFenix.setCantidad(0);
-        NidoFenix.setCantxTurno(0);
+        NidoFenix.setCantxTurno(3);
     }
 
     @Override
@@ -37,6 +37,21 @@ public class NidoFenix implements Mago{
     @Override
     public CentroMando getCentroMando() {
         return null;
+    }
+
+    @Override
+    public int getPrecio1() {
+        return 1250;
+    }
+
+    @Override
+    public int getPrecio2() {
+        return 2500;
+    }
+
+    @Override
+    public int getPrecio3() {
+        return 0;
     }
     
 }

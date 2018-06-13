@@ -18,10 +18,10 @@ public class LagoSapos implements Ninja{
     @Override
     public void crearEdificacion() {
         LagoSapos.setNombre("Lago de Sapos");
-        LagoSapos.setVida(120);
+        LagoSapos.setVida(1100);
         LagoSapos.setCapacidad(10);
         LagoSapos.setCantidad(0);
-        LagoSapos.setCantxTurno(0);
+        LagoSapos.setCantxTurno(1);
     }
 
     @Override
@@ -37,6 +37,21 @@ public class LagoSapos implements Ninja{
     @Override
     public CentroMando getCentroMando() {
         return null;
+    }
+
+    @Override
+    public int getPrecio1() {
+        return 1000;
+    }
+
+    @Override
+    public int getPrecio2() {
+        return 0;
+    }
+
+    @Override
+    public int getPrecio3() {
+        return 4500;
     }
     
 }

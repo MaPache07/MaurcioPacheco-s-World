@@ -18,10 +18,10 @@ public class Comedor implements Pirata{
     @Override
     public void crearEdificacion() {
         Comedor.setNombre("Comedor");
-        Comedor.setVida(145);
+        Comedor.setVida(1250);
         Comedor.setCapacidad(10);
         Comedor.setCantidad(0);
-        Comedor.setCantxTurno(0);
+        Comedor.setCantxTurno(3);
     }
 
     @Override
@@ -37,6 +37,21 @@ public class Comedor implements Pirata{
     @Override
     public CentroMando getCentroMando() {
         return null;
+    }
+
+    @Override
+    public int getPrecio1() {
+        return 0;
+    }
+
+    @Override
+    public int getPrecio2() {
+        return 3000;
+    }
+
+    @Override
+    public int getPrecio3() {
+        return 5000;
     }
     
 }

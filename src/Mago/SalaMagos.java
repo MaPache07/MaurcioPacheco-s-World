@@ -18,8 +18,10 @@ public class SalaMagos implements Mago{
     @Override
     public void crearEdificacion() {
         SalaMagos.setNombre("Sala de Magos");
-        SalaMagos.setVida(90);
+        SalaMagos.setVida(850);
         SalaMagos.setCapacidad(10);
+        SalaMagos.setCantidad(0);
+        SalaMagos.setCantxTurno(2);
     }
 
     @Override
@@ -35,6 +37,21 @@ public class SalaMagos implements Mago{
     @Override
     public CentroMando getCentroMando() {
         return null;
+    }
+
+    @Override
+    public int getPrecio1() {
+        return 0;
+    }
+
+    @Override
+    public int getPrecio2() {
+        return 3000;
+    }
+
+    @Override
+    public int getPrecio3() {
+        return 5000;
     }
     
 }

@@ -18,7 +18,7 @@ public class EstabloPegaso implements Mago{
     @Override
     public void crearEdificacion() {
         EstabloPegaso.setNombre("Establo de Pegasos");
-        EstabloPegaso.setVida(800);
+        EstabloPegaso.setVida(900);
         EstabloPegaso.setCapacidad(10);
         EstabloPegaso.setCantidad(0);
         EstabloPegaso.setCantxTurno(2);
@@ -37,6 +37,21 @@ public class EstabloPegaso implements Mago{
     @Override
     public CentroMando getCentroMando() {
         return null;
+    }
+
+    @Override
+    public int getPrecio1() {
+        return 1000;
+    }
+
+    @Override
+    public int getPrecio2() {
+        return 0;
+    }
+
+    @Override
+    public int getPrecio3() {
+        return 4500;
     }
     
 }

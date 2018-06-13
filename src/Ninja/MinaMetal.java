@@ -18,10 +18,10 @@ public class MinaMetal implements Ninja{
     @Override
     public void crearEdificacion() {
         MinaMetal.setNombre("Mina de metal");
-        MinaMetal.setVida(110);
-        MinaMetal.setCapacidad(0);
+        MinaMetal.setVida(1000);
+        MinaMetal.setCapacidad(7500);
         MinaMetal.setCantidad(0);
-        MinaMetal.setCantxTurno(0);
+        MinaMetal.setCantxTurno(2500);
     }
 
     @Override
@@ -37,6 +37,21 @@ public class MinaMetal implements Ninja{
     @Override
     public CentroMando getCentroMando() {
         return null;
+    }
+
+    @Override
+    public int getPrecio1() {
+        return 1000;
+    }
+
+    @Override
+    public int getPrecio2() {
+        return 2000;
+    }
+
+    @Override
+    public int getPrecio3() {
+        return 0;
     }
     
 }

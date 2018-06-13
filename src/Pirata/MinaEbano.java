@@ -15,17 +15,13 @@ public class MinaEbano implements Pirata{
     
     private static Recolector MinaEbano = new Recolector();
     
-    public static Recolector Chopper(){
-        return MinaEbano;
-    }
-    
     @Override
     public void crearEdificacion() {
         MinaEbano.setNombre("Mina de Ebano");
-        MinaEbano.setVida(140);
-        MinaEbano.setCapacidad(0);
+        MinaEbano.setVida(1200);
+        MinaEbano.setCapacidad(7500);
         MinaEbano.setCantidad(0);
-        MinaEbano.setCantxTurno(0);
+        MinaEbano.setCantxTurno(2500);
     }
 
     @Override
@@ -41,6 +37,21 @@ public class MinaEbano implements Pirata{
     @Override
     public CentroMando getCentroMando() {
         return null;
+    }
+
+    @Override
+    public int getPrecio1() {
+        return 1000;
+    }
+
+    @Override
+    public int getPrecio2() {
+        return 2000;
+    }
+
+    @Override
+    public int getPrecio3() {
+        return 0;
     }
     
 }

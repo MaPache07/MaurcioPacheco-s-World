@@ -14,4 +14,7 @@ public interface Pirata {
     public Recolector getRecolector();
     public Cuartel getCuartel();
     public CentroMando getCentroMando();
+    public int getPrecio1();
+    public int getPrecio2();
+    public int getPrecio3();
 }

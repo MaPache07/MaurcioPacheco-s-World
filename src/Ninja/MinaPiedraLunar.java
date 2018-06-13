@@ -18,10 +18,10 @@ public class MinaPiedraLunar implements Ninja{
     @Override
     public void crearEdificacion() {
         MinaPiedraLunar.setNombre("Mina de Piedra Lunar");
-        MinaPiedraLunar.setVida(100);
-        MinaPiedraLunar.setCapacidad(0);
+        MinaPiedraLunar.setVida(1000);
+        MinaPiedraLunar.setCapacidad(3000);
         MinaPiedraLunar.setCantidad(0);
-        MinaPiedraLunar.setCantxTurno(0);
+        MinaPiedraLunar.setCantxTurno(1000);
     }
 
     @Override
@@ -37,6 +37,21 @@ public class MinaPiedraLunar implements Ninja{
     @Override
     public CentroMando getCentroMando() {
         return null;
+    }
+
+    @Override
+    public int getPrecio1() {
+        return 1250;
+    }
+
+    @Override
+    public int getPrecio2() {
+        return 0;
+    }
+
+    @Override
+    public int getPrecio3() {
+        return 4000;
     }
     
 }

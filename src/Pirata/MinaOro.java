@@ -18,7 +18,7 @@ public class MinaOro implements Pirata{
     @Override
     public void crearEdificacion() {
         MinaOro.setNombre("Mina de Oro");
-        MinaOro.setVida(140);
+        MinaOro.setVida(1200);
         MinaOro.setCapacidad(0);
         MinaOro.setCantidad(0);
         MinaOro.setCantxTurno(0);
@@ -37,6 +37,21 @@ public class MinaOro implements Pirata{
     @Override
     public CentroMando getCentroMando() {
         return null;
+    }
+
+    @Override
+    public int getPrecio1() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getPrecio2() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getPrecio3() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

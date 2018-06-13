@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Mago;
+package Ninja;
 
 import Razas.*;
 
@@ -11,21 +11,21 @@ import Razas.*;
  *
  * @author MaPache
  */
-public class ArbolVida implements Mago{
-    
-    private static CentroMando ArbolVida = new CentroMando();
+public class AldeaNinja implements Ninja{
+
+    private static CentroMando AldeaNinja = new CentroMando();
     
     @Override
     public void crearEdificacion() {
-        ArbolVida.setNombre("Arbol de vida");
-        ArbolVida.setVida(1100);
-        ArbolVida.setCapacidad1(3000);
-        ArbolVida.setCapacidad2(5000);
-        ArbolVida.setCapacidad3(10000);
-        ArbolVida.setCantidad1(0);
-        ArbolVida.setCantidad2(0);
-        ArbolVida.setCantidad3(0);
-        ArbolVida.setNivel(1);
+        AldeaNinja.setNombre("Arbol de vida");
+        AldeaNinja.setVida(1100);
+        AldeaNinja.setCapacidad1(3000);
+        AldeaNinja.setCapacidad2(5000);
+        AldeaNinja.setCapacidad3(10000);
+        AldeaNinja.setCantidad1(0);
+        AldeaNinja.setCantidad2(0);
+        AldeaNinja.setCantidad3(0);
+        AldeaNinja.setNivel(1);
     }
 
     @Override
@@ -40,12 +40,12 @@ public class ArbolVida implements Mago{
 
     @Override
     public CentroMando getCentroMando() {
-        return this.ArbolVida;
+        return this.AldeaNinja;
     }
 
     @Override
     public int getPrecio1() {
-        switch (ArbolVida.getNivel()){
+        switch (AldeaNinja.getNivel()){
             case 1:
                 return 825;
             case 2:
@@ -58,7 +58,7 @@ public class ArbolVida implements Mago{
 
     @Override
     public int getPrecio2() {
-        switch (ArbolVida.getNivel()){
+        switch (AldeaNinja.getNivel()){
             case 1:
                 return 1375;
             case 2:
@@ -71,7 +71,7 @@ public class ArbolVida implements Mago{
 
     @Override
     public int getPrecio3() {
-        switch (ArbolVida.getNivel()){
+        switch (AldeaNinja.getNivel()){
             case 1:
                 return 2750;
             case 2:

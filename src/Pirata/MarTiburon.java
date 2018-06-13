@@ -18,10 +18,10 @@ public class MarTiburon implements Pirata{
     @Override
     public void crearEdificacion() {
         MarTiburon.setNombre("Mar de Tiburones");
-        MarTiburon.setVida(155);
+        MarTiburon.setVida(1300);
         MarTiburon.setCapacidad(10);
         MarTiburon.setCantidad(0);
-        MarTiburon.setCantxTurno(0);
+        MarTiburon.setCantxTurno(3);
     }
 
     @Override
@@ -37,6 +37,21 @@ public class MarTiburon implements Pirata{
     @Override
     public CentroMando getCentroMando() {
         return null;
+    }
+
+    @Override
+    public int getPrecio1() {
+        return 1000;
+    }
+
+    @Override
+    public int getPrecio2() {
+        return 0;
+    }
+
+    @Override
+    public int getPrecio3() {
+        return 4500;
     }
     
 }

@@ -18,10 +18,10 @@ public class RecolectorElixir implements Mago{
     @Override
     public void crearEdificacion() {
         RecolectorElixir.setNombre("Recolector de Elixir");
-        RecolectorElixir.setVida(80);
-        RecolectorElixir.setCapacidad(0);
+        RecolectorElixir.setVida(800);
+        RecolectorElixir.setCapacidad(7500);
         RecolectorElixir.setCantidad(0);
-        RecolectorElixir.setCantxTurno(0);
+        RecolectorElixir.setCantxTurno(2500);
     }
 
     @Override
@@ -37,6 +37,21 @@ public class RecolectorElixir implements Mago{
     @Override
     public CentroMando getCentroMando() {
         return null;
+    }
+
+    @Override
+    public int getPrecio1() {
+        return 1000;
+    }
+
+    @Override
+    public int getPrecio2() {
+        return 2000;
+    }
+
+    @Override
+    public int getPrecio3() {
+        return 0;
     }
     
 }

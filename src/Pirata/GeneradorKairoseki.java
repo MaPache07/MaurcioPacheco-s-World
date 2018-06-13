@@ -18,10 +18,10 @@ public class GeneradorKairoseki implements Pirata{
     @Override
     public void crearEdificacion() {
         GeneradorKairoseki.setNombre("Generador de Kairoseki");
-        GeneradorKairoseki.setVida(150);
-        GeneradorKairoseki.setCapacidad(0);
+        GeneradorKairoseki.setVida(1200);
+        GeneradorKairoseki.setCapacidad(1500);
         GeneradorKairoseki.setCantidad(0);
-        GeneradorKairoseki.setCantxTurno(0);
+        GeneradorKairoseki.setCantxTurno(500);
     }
 
     @Override
@@ -37,6 +37,21 @@ public class GeneradorKairoseki implements Pirata{
     @Override
     public CentroMando getCentroMando() {
         return null;
+    }
+
+    @Override
+    public int getPrecio1() {
+        return 0;
+    }
+
+    @Override
+    public int getPrecio2() {
+        return 2500;
+    }
+
+    @Override
+    public int getPrecio3() {
+        return 5000;
     }
     
 }

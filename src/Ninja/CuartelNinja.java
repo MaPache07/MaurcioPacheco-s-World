@@ -18,9 +18,10 @@ public class CuartelNinja implements Ninja{
     @Override
     public void crearEdificacion() {
         CuartelNinja.setNombre("Cuartel ninja");
-        CuartelNinja.setVida(120);
+        CuartelNinja.setVida(1050);
         CuartelNinja.setCapacidad(10);
         CuartelNinja.setCantidad(0);
+        CuartelNinja.setCantxTurno(1);
     }
     
     @Override
@@ -36,6 +37,21 @@ public class CuartelNinja implements Ninja{
     @Override
     public CentroMando getCentroMando() {
         return null;
+    }
+
+    @Override
+    public int getPrecio1() {
+        return 0;
+    }
+
+    @Override
+    public int getPrecio2() {
+        return 3000;
+    }
+
+    @Override
+    public int getPrecio3() {
+        return 5000;
     }
     
 }

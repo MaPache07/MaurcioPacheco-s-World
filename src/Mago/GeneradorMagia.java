@@ -18,10 +18,10 @@ public class GeneradorMagia implements Mago{
     @Override
     public void crearEdificacion() {
         GeneradorMagia.setNombre("Generador de Magia");
-        GeneradorMagia.setVida(80);
-        GeneradorMagia.setCapacidad(0);
+        GeneradorMagia.setVida(800);
+        GeneradorMagia.setCapacidad(1500);
         GeneradorMagia.setCantidad(0);
-        GeneradorMagia.setCantxTurno(0);
+        GeneradorMagia.setCantxTurno(500);
     }
 
     @Override
@@ -37,6 +37,21 @@ public class GeneradorMagia implements Mago{
     @Override
     public CentroMando getCentroMando() {
         return null;
+    }
+
+    @Override
+    public int getPrecio1() {
+        return 0;
+    }
+
+    @Override
+    public int getPrecio2() {
+        return 2500;
+    }
+
+    @Override
+    public int getPrecio3() {
+        return 5000;
     }
     
 }

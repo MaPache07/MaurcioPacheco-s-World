@@ -22,4 +22,7 @@ public interface RecolectorPlan {
     public int getCantidad();
     public int getCantxTurno();
     public int getCantTurn();
+    public void CrearTropaNinja(String nombre);
+    public void CrearTropaMago(String nombre);
+    public void CrearTropaPirata(String nombre);
 }

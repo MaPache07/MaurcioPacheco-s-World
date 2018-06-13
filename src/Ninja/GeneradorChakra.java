@@ -18,10 +18,10 @@ public class GeneradorChakra implements Ninja{
     @Override
     public void crearEdificacion() {
         RecolectorChakra.setNombre("Generador de Chakra");
-        RecolectorChakra.setVida(100);
-        RecolectorChakra.setCapacidad(0);
+        RecolectorChakra.setVida(1000);
+        RecolectorChakra.setCapacidad(1500);
         RecolectorChakra.setCantidad(0);
-        RecolectorChakra.setCantxTurno(0);
+        RecolectorChakra.setCantxTurno(500);
     }
 
     @Override
@@ -37,6 +37,21 @@ public class GeneradorChakra implements Ninja{
     @Override
     public CentroMando getCentroMando() {
         return null;
+    }
+
+    @Override
+    public int getPrecio1() {
+        return 0;
+    }
+
+    @Override
+    public int getPrecio2() {
+        return 2500;
+    }
+
+    @Override
+    public int getPrecio3() {
+        return 5000;
     }
     
 }

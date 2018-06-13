@@ -18,10 +18,10 @@ public class RecolectorEter implements Mago{
     @Override
     public void crearEdificacion() {
         RecolectorEter.setNombre("Recolector de Eter");
-        RecolectorEter.setVida(80);
-        RecolectorEter.setCapacidad(0);
+        RecolectorEter.setVida(800);
+        RecolectorEter.setCapacidad(3000);
         RecolectorEter.setCantidad(0);
-        RecolectorEter.setCantxTurno(0);
+        RecolectorEter.setCantxTurno(1000);
     }
 
     @Override
@@ -37,6 +37,21 @@ public class RecolectorEter implements Mago{
     @Override
     public CentroMando getCentroMando() {
         return null;
+    }
+
+    @Override
+    public int getPrecio1() {
+        return 1250;
+    }
+
+    @Override
+    public int getPrecio2() {
+        return 0;
+    }
+
+    @Override
+    public int getPrecio3() {
+        return 4000;
     }
     
 }

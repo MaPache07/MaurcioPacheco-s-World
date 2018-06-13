@@ -34,8 +34,8 @@ public class FactoryPirata implements AbstractFactory{
                 return new MinaEbano();
             case ("Comedor"):
                 return new Comedor();
-            case ("PuertoPirata"):
-                return new PuertoPirata();
+            case ("BarcoPirata"):
+                return new BarcoPirata();
             case ("MarTiburon"):
                 return new MarTiburon();
         }

@@ -43,7 +43,7 @@ public class Recolector implements RecolectorPlan{
     public void setCantTurn(int turn) {
         this.turn = turn;
     }
-
+    
     @Override
     public String getNombre() {
         return this.nombre;
@@ -72,5 +72,22 @@ public class Recolector implements RecolectorPlan{
     @Override
     public int getCantTurn() {
         return this.turn;
+    }
+
+    
+
+    @Override
+    public void CrearTropaNinja(String nombre) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void CrearTropaMago(String nombre) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void CrearTropaPirata(String nombre) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
