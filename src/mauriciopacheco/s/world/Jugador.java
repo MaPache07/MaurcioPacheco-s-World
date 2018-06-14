@@ -302,6 +302,14 @@ public class Jugador {
         System.out.println("Las edificaciones en pie actualmente son: ");
         System.out.println("- " + ListCentroMando.get(0).getNombre());
         int size;
+        if(!ListGenerador.isEmpty()){
+            size = ListGenerador.size();
+            for(int i = 0; i < size; i++){
+                if(ListGenerador.get(i).getCantTurn() == 0){
+                    System.out.println("- " + ListGenerador.get(i).getNombre());
+                }
+            }
+        }
         if(!ListRecolector.isEmpty()){
             size = ListRecolector.size();
             for(int i = 0; i < size; i++){
@@ -315,6 +323,14 @@ public class Jugador {
             for(int i = 0; i < size; i++){
                 if(ListCuartel.get(i).getCantTurn() == 0){
                     System.out.println("- " + ListCuartel.get(i).getNombre());
+                }
+            }
+        }
+        if(!ListConstructor.isEmpty()){
+            size = ListConstructor.size();
+            for(int i = 0; i < size; i++){
+                if(ListConstructor.get(i).getCantTurn() == 0){
+                    System.out.println("- " + ListConstructor.get(i).getNombre());
                 }
             }
         }
@@ -529,4 +545,91 @@ public class Jugador {
             System.out.println("No tiene creado ningun cuartel");
         }
     }
+    
+    ////////////////////////////////////////////ATACAR/DEFENDER////////////////////////////////////////////
+    
+    //////////////////////////////////////////////CAMBIO FASE//////////////////////////////////////////////
+    
+    public void RecolectarRecurco(){
+        if (!ListRecolector.isEmpty()){
+            int size = ListRecolector.size(), cant = 0;
+            for(int i = 0; i < size; i++){
+                if (ListRecolector.get(i).getCantTurn() == 0){
+                    cant = ListRecolector.get(i).getCantidad()+ListRecolector.get(i).getCantxTurno();
+                    ListRecolector.get(i).setCantidad(cant);
+                }
+            }
+        }
+        if (!ListGenerador.isEmpty()){
+            int size = ListGenerador.size();
+            for(int i = 0; i < size; i++){
+                if (ListGenerador.get(i).getCantTurn() == 0){
+                    rec1 = rec1+ListGenerador.get(i).getCantxTurno();
+                }
+            }
+        }
+    }
+    
+    public ArrayList Construccion(ArrayList mensajea){
+        String mensaje = "";
+        int size;
+        if(!ListGenerador.isEmpty()){
+            int cant;
+            size = ListGenerador.size();
+            for(int i = 0; i < size; i++){
+                if(ListGenerador.get(i).getCantTurn() != 0){
+                    cant = ListGenerador.get(i).getCantTurn()-1;
+                    ListGenerador.get(i).setCantTurn(cant);
+                    if (ListGenerador.get(i).getCantTurn() == 0){
+                        mensaje = "Ya se construyo el generador " + ListGenerador.get(i).getNombre();
+                        mensajea.add(mensaje);
+                    }
+                }
+            }
+        }
+        if(!ListRecolector.isEmpty()){
+            int cant;
+            size = ListRecolector.size();
+            for(int i = 0; i < size; i++){
+                if(ListRecolector.get(i).getCantTurn() != 0){
+                    cant = ListRecolector.get(i).getCantTurn()-1;
+                    ListRecolector.get(i).setCantTurn(cant);
+                    if (ListRecolector.get(i).getCantTurn() == 0){
+                        mensaje = "Ya se construyo el recolector " + ListRecolector.get(i).getNombre();
+                        mensajea.add(mensaje);
+                    }
+                }
+            }
+        }
+        if(!ListCuartel.isEmpty()){
+            int cant;
+            size = ListCuartel.size();
+            for(int i = 0; i < size; i++){
+                if(ListCuartel.get(i).getCantTurn() != 0){
+                    cant = ListCuartel.get(i).getCantTurn()-1;
+                    ListCuartel.get(i).setCantTurn(cant);
+                    if (ListCuartel.get(i).getCantTurn() == 0){
+                        mensaje = "Ya se construyo el cuartel " + ListCuartel.get(i).getNombre();
+                        mensajea.add(mensaje);
+                    }
+                }
+            }
+        }
+        if(!ListConstructor.isEmpty()){
+            int cant;
+            size = ListConstructor.size();
+            for(int i = 0; i < size; i++){
+                if(ListConstructor.get(i).getCantTurn() != 0){
+                    cant = ListConstructor.get(i).getCantTurn()-1;
+                    ListConstructor.get(i).setCantTurn(cant);
+                    if (ListConstructor.get(i).getCantTurn() == 0){
+                        mensaje = "Ya se construyo el cuartel " + ListConstructor.get(i).getNombre();
+                        mensajea.add(mensaje);
+                    }
+                }
+            }
+        }
+        return mensajea;
+    }
+    
 }

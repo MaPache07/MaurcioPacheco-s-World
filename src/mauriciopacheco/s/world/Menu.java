@@ -17,6 +17,8 @@ public class Menu {
     
     Jugador jugador1 = new Jugador();
     Jugador jugador2 = new Jugador();
+    ArrayList<String> Mensaje1 = new ArrayList<>();
+    ArrayList<String> Mensaje2 = new ArrayList<>();
     //ArrayList<AbstractFactory> razas = new ArrayList<>();
     
     public void Inicio(){
@@ -78,18 +80,21 @@ public class Menu {
     }
     
     public void Juego(int jugador){
-        boolean juego = true;
+        boolean juego = true, turno1, turno2;
         int fase = 1;
         while(juego){
-            boolean turno1 = true, turno2 = true;
+            turno1 = true; 
+            turno2 = true;
             System.out.println("");
             System.out.println("|-----------------------FASE " + fase + "-----------------------|");
             while(turno1 || turno2){
-                while(jugador == 1){
+                while(jugador == 1 && turno1){
                     int o1;
                     Scanner input1 = new Scanner(System.in);
                     System.out.println("");
                     System.out.println("|----------------TURNO DEL JUGADOR #" + jugador + "----------------|");
+                    System.out.println("");
+                    MostrarM(Mensaje1);
                     System.out.println("");
                     System.out.println("|----------------------------------------------------|");
                     System.out.println(jugador1.nrec1+": "+jugador1.rec1+" | "+jugador1.nrec2+": "+jugador1.rec2 +" | "+jugador1.nrec3+": "+jugador1.rec3);
@@ -118,11 +123,13 @@ public class Menu {
                             break;
                     }
                 }
-                while(jugador == 2){
+                while(jugador == 2 && turno2){
                     int o2;
                     Scanner input2 = new Scanner(System.in);
                     System.out.println("");
                     System.out.println("|----------------TURNO DEL JUGADOR #" + jugador + "----------------|");
+                    System.out.println("");
+                    MostrarM(Mensaje2);
                     System.out.println("");
                     System.out.println("|----------------------------------------------------|");
                     System.out.println(jugador2.nrec1+": "+jugador2.rec1+" | "+jugador2.nrec2+": "+jugador2.rec2 +" | "+jugador2.nrec3+": "+jugador2.rec3);
@@ -152,9 +159,24 @@ public class Menu {
                     }
                 }
             }
-            
-            
+            jugador1.RecolectarRecurco();
+            jugador1.Construccion(Mensaje1);
+            jugador2.RecolectarRecurco();
+            jugador2.Construccion(Mensaje2);
             fase++;
+        }
+    }
+    
+    public void MostrarM(ArrayList mensaje){
+        if(!mensaje.isEmpty()){
+            int size = mensaje.size();
+            for(int i = 0; i < size; i++){
+                System.out.println(mensaje.get(i));
+            }
+            mensaje.clear();
+        }
+        else{
+            System.out.println("No hay notificaciones");
         }
     }
 }
