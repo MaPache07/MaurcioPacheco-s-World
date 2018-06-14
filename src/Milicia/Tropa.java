@@ -5,6 +5,9 @@
  */
 package Milicia;
 
+import Razas.Cuartel;
+import Razas.Recolector;
+
 /**
  *
  * @author MaPache
@@ -13,6 +16,9 @@ public class Tropa implements TropaPlan{
     
     private String nombre;
     private int vida, ataque, cant, llegada, precio1, precio2, precio3;
+    private Cuartel objetivoc;
+    private Recolector objetivor;
+    private Tropa objetivot;
     
     @Override
     public void setNombre(String nombre) {
@@ -55,6 +61,21 @@ public class Tropa implements TropaPlan{
     }
     
     @Override
+    public void setObjetivoR(Recolector recolector) {
+        this.objetivor = recolector;
+    }
+
+    @Override
+    public void setObjetivoC(Cuartel cuartel) {
+        this.objetivoc = cuartel;
+    }
+
+    @Override
+    public void setObjetivoT(Tropa tropa) {
+        this.objetivot = tropa;
+    }
+    
+    @Override
     public String getNombre() {
         return this.nombre;
     }
@@ -92,5 +113,20 @@ public class Tropa implements TropaPlan{
     @Override
     public int getPrecio3() {
         return this.precio3;
+    }
+
+    @Override
+    public Recolector getObjetivoR() {
+        return this.objetivor;
+    }
+
+    @Override
+    public Cuartel getObjetivoC() {
+        return this.objetivoc;
+    }
+
+    @Override
+    public Tropa getObjetivoT() {
+        return this.objetivot;
     }
 }

@@ -5,6 +5,8 @@
  */
 package Milicia;
 
+import Razas.*;
+
 /**
  *
  * @author MaPache
@@ -18,6 +20,9 @@ public interface TropaPlan {
     public void setPrecio1(int precio);
     public void setPrecio2(int precio);
     public void setPrecio3(int precio);
+    public void setObjetivoR(Recolector recolector);
+    public void setObjetivoC(Cuartel cuartel);
+    public void setObjetivoT(Tropa tropa);
     public String getNombre();
     public int getVida();
     public int getAtaque();
@@ -26,4 +31,7 @@ public interface TropaPlan {
     public int getPrecio1();
     public int getPrecio2();
     public int getPrecio3();
+    public Recolector getObjetivoR();
+    public Cuartel getObjetivoC();
+    public Tropa getObjetivoT();
 }

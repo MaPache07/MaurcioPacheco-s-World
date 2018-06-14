@@ -112,7 +112,7 @@ public class Menu {
                             jugador1.EntrenarConstruir();
                             break;
                         case 3:
-                            
+                            jugador1.AtacarDefender(jugador2.ListCentroMando, jugador2.ListGenerador, jugador2.ListRecolector, jugador2.ListCuartel, jugador2.ListConstructor);
                             break;
                         case 4:
                             jugador = 2;
@@ -147,7 +147,7 @@ public class Menu {
                             jugador2.EntrenarConstruir();
                             break;
                         case 3:
-                            
+                            jugador2.AtacarDefender(jugador1.ListCentroMando, jugador1.ListGenerador, jugador1.ListRecolector, jugador1.ListCuartel, jugador1.ListConstructor);
                             break;
                         case 4:
                             jugador = 1;

@@ -28,13 +28,13 @@ public class Jugador {
     CentroMando centromando = new CentroMando();
     int rec1, rec2, rec3, raza;
     String nrec1, nrec2, nrec3;
-    private ArrayList<Tropa> ListTropa = new ArrayList<>();
-    private ArrayList<Tropa> ListVehiculo = new ArrayList<>();
-    private ArrayList<Cuartel> ListCuartel = new ArrayList<>();
-    private ArrayList<Cuartel> ListConstructor = new ArrayList<>();
-    private ArrayList<Recolector> ListRecolector = new ArrayList<>();
-    private ArrayList<Recolector> ListGenerador = new ArrayList<>();
-    private ArrayList<CentroMando> ListCentroMando = new ArrayList<>();
+    ArrayList<Tropa> ListTropa = new ArrayList<>();
+    ArrayList<Tropa> ListVehiculo = new ArrayList<>();
+    ArrayList<Cuartel> ListCuartel = new ArrayList<>();
+    ArrayList<Cuartel> ListConstructor = new ArrayList<>();
+    ArrayList<Recolector> ListRecolector = new ArrayList<>();
+    ArrayList<Recolector> ListGenerador = new ArrayList<>();
+    ArrayList<CentroMando> ListCentroMando = new ArrayList<>();
     
     public void Razas (){
         int o;
@@ -643,6 +643,85 @@ public class Jugador {
     
     ////////////////////////////////////////////ATACAR/DEFENDER////////////////////////////////////////////
     
+    public void AtacarDefender(ArrayList CM, ArrayList G, ArrayList R, ArrayList C, ArrayList CV){
+        boolean flag = true;
+        int o;
+        Scanner input = new Scanner(System.in);
+        while(flag){
+            System.out.println("");
+            System.out.println("|-------------------ATACAR/DEFENDER-------------------|");
+            System.out.println("1. Atacar");
+            System.out.println("2. Defender");
+            System.out.println("3. Regresar");
+            o = input.nextInt();
+            switch(o){
+                case 1:
+                    Atacar(CM, G, R, C, CV);
+                    break;
+                case 2:
+                    
+                    break;
+                case 3:
+                    flag = false;
+                    break;
+                default:
+                    System.out.println("La opcion que ingreso no es valida");
+            }
+        }
+    }
+    
+    public void Atacar(ArrayList<CentroMando> CM, ArrayList<Recolector> G, ArrayList<Recolector> R, ArrayList<Cuartel> C, ArrayList<Cuartel> CV){
+        Tropa tropa = new Tropa();
+        boolean flag = true;
+        if (ValidarTropa(ListVehiculo) || ValidarTropa(ListTropa)){
+            int contt = 1, o;
+            Scanner input1 = new Scanner(System.in);
+            System.out.println("Seleccione la tropa a enviar");
+            int contv = MostrarTropa(ListTropa, contt, true);
+            int contf = MostrarTropa(ListVehiculo, contv, true);
+            o = input1.nextInt();
+            if (o >= contt && o <contv ){
+                tropa = ListTropa.get(o-contt);
+            }
+            if (o >= contv && o < contf){
+                tropa = ListVehiculo.get(o-contv);
+            }
+            if (o < contt || o > contf){
+                System.out.println("No ingreso una opcion valida");
+                flag = false;
+            }
+            if ((ValidarRecolector(G) || ValidarRecolector(R) || ValidarCuartel(C) || ValidarCuartel(CV)) && flag){
+                int contg = 1;
+                Scanner input2 = new Scanner(System.in);
+                System.out.println("Seleccione la edificacion enemiga que desee atacar");
+                int contr = MostrarRecolector(G, contg, true);
+                int contc = MostrarRecolector(R, contr, true);
+                int contcv = MostrarCuartel(C, contc, true);
+                contf = MostrarCuartel(CV, contcv, true);
+                o = input2.nextInt();
+                if (o >= contg && o < contr){
+                    tropa.setObjetivoR(G.get(o-contg));
+                    System.out.println("La tropa seleccionada salio al ataque");
+                }
+                if (o >= contr && o < contc){
+                    tropa.setObjetivoR(R.get(o-contr));
+                    System.out.println("La tropa seleccionada salio al ataque");
+                }
+                if (o >= contc && o < contcv){
+                    tropa.setObjetivoC(C.get(o-contc));
+                    System.out.println("La tropa seleccionada salio al ataque");
+                }
+                if (o >= contcv && o < contf){
+                    tropa.setObjetivoC(CV.get(o-contcv));
+                    System.out.println("La tropa seleccionada salio al ataque");
+                }
+                if (o < contg || o > contf){
+                    System.out.println("No ingreso una opcion valida");
+                }
+            }
+        }
+    }
+    
     //////////////////////////////////////////////CAMBIO FASE//////////////////////////////////////////////
     
     public void RecolectarRecurco(){
@@ -759,4 +838,95 @@ public class Jugador {
         return null;
     }
     
+    ////////////////////////////////////////////////GENERAL////////////////////////////////////////////////
+    
+    public int MostrarRecolector(ArrayList<Recolector> array, int cont, boolean flag){
+        if(!array.isEmpty()){
+            int size = array.size();
+            for(int i = 0; i < size; i++){
+                if(array.get(i).getCantTurn() == 0){
+                    if (flag == false){
+                        System.out.println("- " + array.get(i).getNombre());
+                    }
+                    else{
+                        System.out.println(cont + ". " + array.get(i).getNombre());
+                        cont++;
+                    }
+                }
+            }
+        }
+        return cont;
+    }
+    
+    public int MostrarCuartel(ArrayList<Cuartel> array, int cont, boolean flag){
+        if(!array.isEmpty()){
+            int size = array.size();
+            for(int i = 0; i < size; i++){
+                if(array.get(i).getCantTurn() == 0){
+                    if (flag == false){
+                        System.out.println("- " + array.get(i).getNombre());
+                    }
+                    else{
+                        System.out.println(cont + ". " + array.get(i).getNombre());
+                        cont++;
+                    }
+                }
+            }
+        }
+        return cont;
+    }
+    
+    public int MostrarTropa(ArrayList<Tropa> array, int cont, boolean flag){
+        if(!array.isEmpty()){
+            int size = array.size();
+            for(int i = 0; i < size; i++){
+                if(array.get(i).getCantTurno() == 0){
+                    if (flag == false){
+                        System.out.println("- " + array.get(i).getNombre());
+                    }
+                    else{
+                        System.out.println(cont + ". " + array.get(i).getNombre());
+                        cont++;
+                    }
+                }
+            }
+        }
+        return cont;
+    }
+    
+    public boolean ValidarRecolector(ArrayList<Recolector> array){
+        if(!array.isEmpty()){
+            int size = array.size();
+            for(int i = 0; i < size; i++){
+                if(array.get(i).getCantTurn() == 0){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    
+    public boolean ValidarCuartel(ArrayList<Cuartel> array){
+        if(!array.isEmpty()){
+            int size = array.size();
+            for(int i = 0; i < size; i++){
+                if(array.get(i).getCantTurn() == 0){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    
+    public boolean ValidarTropa(ArrayList<Tropa> array){
+        if(!array.isEmpty()){
+            int size = array.size();
+            for(int i = 0; i < size; i++){
+                if(array.get(i).getCantTurno() == 0){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }
