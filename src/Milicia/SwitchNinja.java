@@ -13,25 +13,25 @@ import Ninja.Tropas.*;
  */
 public class SwitchNinja {
     
-    public Tropa SwitchNinja(String nombre){
+    public Tropa SwitchNinja(int type){
         
-        switch(nombre){
-            case ("Bijuu"):
-                Bijuu b = new Bijuu();
-                b.crearTropa();
-                return b.getTropa();
-            case ("Chunin"):
-                Chunin c = new Chunin();
-                c.crearTropa();
-                return c.getTropa();
-            case ("Hokage"):
+        switch(type){
+            case (1):
                 Hokage h = new Hokage();
                 h.crearTropa();
                 return h.getTropa();
-            case ("Sapo"):
+            case (2):
+                Chunin c = new Chunin();
+                c.crearTropa();
+                return c.getTropa();
+            case (3):
                 Sapo s = new Sapo();
                 s.crearTropa();
                 return s.getTropa();
+            case (4):
+                Bijuu b = new Bijuu();
+                b.crearTropa();
+                return b.getTropa();
         }
         return null;
         

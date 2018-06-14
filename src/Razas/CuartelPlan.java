@@ -27,7 +27,7 @@ public interface CuartelPlan {
     public int getCantxTurno();
     public int getCantTurn();
     public int getCodigo();
-    public void CrearTropaNinja(String nombre);
-    public void CrearTropaMago(String nombre);
-    public void CrearTropaPirata(String nombre);
+    public void CrearTropaNinja(int type);
+    public void CrearTropaMago(int type);
+    public void CrearTropaPirata(int type);
 }

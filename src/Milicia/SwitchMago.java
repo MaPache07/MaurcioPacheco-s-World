@@ -13,25 +13,25 @@ import Mago.Tropas.*;
  */
 public class SwitchMago {
     
-    public Tropa SwitchMago(String nombre){
+    public Tropa SwitchMago(int type){
         
-        switch(nombre){
-            case ("Archimago"):
+        switch(type){
+            case (1):
                 Archimago a = new Archimago();
                 a.crearTropa();
                 return a.getTropa();
-            case ("Fenix"):
-                Fenix f = new Fenix();
-                f.crearTropa();
-                return f.getTropa();
-            case ("MagosElementales"):
+            case (2):
                 MagosElementales m = new MagosElementales();
                 m.crearTropa();
                 return m.getTropa();
-            case ("Pegaso"):
+            case (3):
                 Pegaso p = new Pegaso();
                 p.crearTropa();
                 return p.getTropa();
+            case (4):
+                Fenix f = new Fenix();
+                f.crearTropa();
+                return f.getTropa();
         }
         return null;
     }

@@ -22,11 +22,16 @@ public class Jugador {
     FactoryMago mago = new FactoryMago();
     FactoryNinja ninja = new FactoryNinja();
     FactoryPirata pirata = new FactoryPirata();
+    SwitchMago tropam = new SwitchMago();
+    SwitchNinja tropan = new SwitchNinja();
+    SwitchPirata tropap = new SwitchPirata();
     CentroMando centromando = new CentroMando();
     int rec1, rec2, rec3, raza;
     String nrec1, nrec2, nrec3;
     private ArrayList<Tropa> ListTropa = new ArrayList<>();
+    private ArrayList<Tropa> ListVehiculo = new ArrayList<>();
     private ArrayList<Cuartel> ListCuartel = new ArrayList<>();
+    private ArrayList<Cuartel> ListConstructor = new ArrayList<>();
     private ArrayList<Recolector> ListRecolector = new ArrayList<>();
     private ArrayList<Recolector> ListGenerador = new ArrayList<>();
     private ArrayList<CentroMando> ListCentroMando = new ArrayList<>();
@@ -164,10 +169,15 @@ public class Jugador {
                     if(ninja.getNinja(o).getPrecio1() < rec1 && ninja.getNinja(o).getPrecio2() < rec2 && ninja.getNinja(o).getPrecio3() < rec3){
                         ninja.getNinja(o).crearEdificacion();
                         recolector = ninja.getNinja(o).getRecolector();
-                        ListRecolector.add(recolector);
                         rec1 = rec1-ninja.getNinja(o).getPrecio1();
                         rec2 = rec2-ninja.getNinja(o).getPrecio2();
                         rec3 = rec3-ninja.getNinja(o).getPrecio3();
+                        if(o == 1){
+                            ListGenerador.add(recolector);
+                        }
+                        else{
+                            ListRecolector.add(recolector);
+                        }
                     }
                     else{
                         System.out.println("No tiene suficientes recursos para construir esta edificacion");
@@ -177,10 +187,15 @@ public class Jugador {
                     if(pirata.getPirata(o).getPrecio1() < rec1 && pirata.getPirata(o).getPrecio2() < rec2 && pirata.getPirata(o).getPrecio3() < rec3){
                         pirata.getPirata(o).crearEdificacion();
                         recolector = pirata.getPirata(o).getRecolector();
-                        ListRecolector.add(recolector);
                         rec1 = rec1-pirata.getPirata(o).getPrecio1();
                         rec2 = rec2-pirata.getPirata(o).getPrecio2();
                         rec3 = rec3-pirata.getPirata(o).getPrecio3();
+                        if(o == 1){
+                            ListGenerador.add(recolector);
+                        }
+                        else{
+                            ListRecolector.add(recolector);
+                        }
                     }
                     else{
                         System.out.println("No tiene suficientes recursos para construir esta edificacion");
@@ -192,10 +207,15 @@ public class Jugador {
                     if(mago.getMago(o).getPrecio1() < rec1 && mago.getMago(o).getPrecio2() < rec2 && mago.getMago(o).getPrecio3() < rec3){
                         mago.getMago(o).crearEdificacion();
                         cuartel = mago.getMago(o).getCuartel();
-                        ListCuartel.add(cuartel);
                         rec1 = rec1-mago.getMago(o).getPrecio1();
                         rec2 = rec2-mago.getMago(o).getPrecio2();
                         rec3 = rec3-mago.getMago(o).getPrecio3();
+                        if(o == 4){
+                            ListCuartel.add(cuartel);
+                        }
+                        else{
+                            ListConstructor.add(cuartel);
+                        }
                     }
                     else{
                         System.out.println("No tiene suficientes recursos para construir esta edificacion");
@@ -205,10 +225,15 @@ public class Jugador {
                     if(ninja.getNinja(o).getPrecio1() < rec1 && ninja.getNinja(o).getPrecio2() < rec2 && ninja.getNinja(o).getPrecio3() < rec3){
                         ninja.getNinja(o).crearEdificacion();
                         cuartel = ninja.getNinja(o).getCuartel();
-                        ListCuartel.add(cuartel);
                         rec1 = rec1-ninja.getNinja(o).getPrecio1();
                         rec2 = rec2-ninja.getNinja(o).getPrecio2();
                         rec3 = rec3-ninja.getNinja(o).getPrecio3();
+                        if(o == 4){
+                            ListCuartel.add(cuartel);
+                        }
+                        else{
+                            ListConstructor.add(cuartel);
+                        }
                     }
                     else{
                         System.out.println("No tiene suficientes recursos para construir esta edificacion");
@@ -218,10 +243,15 @@ public class Jugador {
                     if(pirata.getPirata(o).getPrecio1() < rec1 && pirata.getPirata(o).getPrecio2() < rec2 && pirata.getPirata(o).getPrecio3() < rec3){
                         pirata.getPirata(o).crearEdificacion();
                         cuartel = pirata.getPirata(o).getCuartel();
-                        ListCuartel.add(cuartel);
                         rec1 = rec1-pirata.getPirata(o).getPrecio1();
                         rec2 = rec2-pirata.getPirata(o).getPrecio2();
                         rec3 = rec3-pirata.getPirata(o).getPrecio3();
+                        if(o == 4){
+                            ListCuartel.add(cuartel);
+                        }
+                        else{
+                            ListConstructor.add(cuartel);
+                        }
                     }
                     else{
                         System.out.println("No tiene suficientes recursos para construir esta edificacion");
@@ -343,15 +373,15 @@ public class Jugador {
             System.out.println("");
             System.out.println("|-----------------ENTRENAR/CONSTRUIR-----------------|");
             System.out.println("1. Entrenar milicia");
-            System.out.println("2. Construir/Entrenar un vehiculo");
+            System.out.println("2. Construir un vehiculo");
             System.out.println("3. Regresar");
             o = input.nextInt();
             switch(o){
                 case 1:
-                    
+                    Entrenar();
                     break;
                 case 2:
-                    
+                    Construir();
                     break;
                 case 3:
                     flag = false;
@@ -362,4 +392,141 @@ public class Jugador {
         }
     }
     
+    public void Entrenar(){
+        if(!ListCuartel.isEmpty()){
+            boolean flag = false;
+            int size = ListCuartel.size();
+            for(int i = 0; i < size; i++){
+                if (ListCuartel.get(i).getCantTurn() == 0){
+                    flag = true;
+                }
+            }
+            if (flag == true){
+                int cont = 1, o;
+                Tropa tropa = new Tropa();
+                Scanner input = new Scanner(System.in);
+                System.out.println("Seleccione la tropa que desee entrenar");
+                while(cont < 3){
+                    if(raza == 1){
+                        System.out.println(cont + "." + " " + tropam.SwitchMago(cont).getNombre());
+                    }
+                    if(raza == 2){
+                        System.out.println(cont + "." + " " + tropan.SwitchNinja(cont).getNombre());
+                    }
+                    if(raza == 3){
+                        System.out.println(cont + "." + " " + tropap.SwitchPirata(cont).getNombre());
+                    }
+                    cont++;
+                }
+                o = input.nextInt();
+                if (o == 1 || o == 2){
+                    if(raza == 1){
+                        tropa = tropam.SwitchMago(o);
+                        ListTropa.add(tropa);
+                    }
+                    if(raza == 2){
+                        tropa = tropan.SwitchNinja(o);
+                        ListTropa.add(tropa);
+                    }
+                    if(raza == 3){
+                        tropa = tropap.SwitchPirata(o);
+                        ListTropa.add(tropa);
+                    }
+                    System.out.println("Se empezó a entrenar la tropa seleccionada");
+                }
+                else{
+                    System.out.println("Ingreso una opcion no valida");
+                }
+            }
+            else{
+                System.out.println("Su cuartel(es) se esta construyendo");
+            }
+        }
+        else{
+            System.out.println("No tiene creado ningun cuartel");
+        }
+    }
+    
+    public void Construir(){
+        if(!ListConstructor.isEmpty()){
+            boolean flag = false, flag1 = false, flag2 = false;
+            int size = ListConstructor.size();
+            for(int i = 0; i < size; i++){
+                if (ListConstructor.get(i).getCantTurn() == 0){
+                    flag = true;
+                    if (ListConstructor.get(i).getCodigo() == 2){
+                        flag2 = true;
+                    }
+                    else{
+                        flag1 = true;
+                    }
+                }
+            }
+            if (flag == true){
+                int contx = 3, cont = 1, o, cant = 0;
+                Tropa tropa = new Tropa();
+                Scanner input = new Scanner(System.in);
+                System.out.println("Seleccione el vehiculo que dese construir");
+                while(contx < 5){
+                    if(raza == 1){
+                        if(flag1 && contx == 4){
+                            System.out.println(cont + "." + " " + tropam.SwitchMago(contx).getNombre());
+                            cant++;
+                        }
+                        if (flag2 && contx == 3){
+                            System.out.println(cont + "." + " " + tropam.SwitchMago(contx).getNombre());
+                            cant++;
+                        }
+                    }
+                    if(raza == 2){
+                        if (flag1 && contx == 4){
+                            System.out.println(cont + "." + " " + tropan.SwitchNinja(contx).getNombre());
+                            cant++;
+                        }
+                        if (flag2 && contx == 3){
+                            System.out.println(cont + "." + " " + tropan.SwitchNinja(contx).getNombre());
+                            cant++;
+                        }
+                    }
+                    if(raza == 3){
+                        if (flag1 && contx == 4){
+                            System.out.println(contx + "." + " " + tropap.SwitchPirata(contx).getNombre());
+                            cant++;
+                        }
+                        if (flag2 && contx == 3){
+                            System.out.println(contx + "." + " " + tropap.SwitchPirata(contx).getNombre());
+                            cant++;
+                        }
+                    }
+                    contx++;
+                    cont++;
+                }
+                o = input.nextInt();
+                if (cant >= o && o > 0){
+                    if(raza == 1){
+                        tropa = tropam.SwitchMago(o);
+                        ListVehiculo.add(tropa);
+                    }
+                    if(raza == 2){
+                        tropa = tropan.SwitchNinja(o);
+                        ListVehiculo.add(tropa);
+                    }
+                    if(raza == 3){
+                        tropa = tropap.SwitchPirata(o);
+                        ListVehiculo.add(tropa);
+                    }
+                    System.out.println("Se empezó a contruir el vehiculo seleccionado");
+                }
+                else{
+                    System.out.println("No ingreso una opcion valida");
+                }
+            }
+            else{
+                System.out.println("Su cuartel(es) se esta construyendo");
+            }
+        }
+        else{
+            System.out.println("No tiene creado ningun cuartel");
+        }
+    }
 }

@@ -92,17 +92,17 @@ public class Cuartel implements CuartelPlan{
     //Estos Switch retornan la tropa deseada, hay que ver como se aprovecha eso
     
     @Override
-    public void CrearTropaNinja(String nombre) {
-        Sn.SwitchNinja(nombre);
+    public void CrearTropaNinja(int type) {
+        Sn.SwitchNinja(type);
     }
 
     @Override
-    public void CrearTropaMago(String nombre) {
-        Sm.SwitchMago(nombre);
+    public void CrearTropaMago(int type) {
+        Sm.SwitchMago(type);
     }
 
     @Override
-    public void CrearTropaPirata(String nombre) {
-        Sp.SwitchPirata(nombre);
+    public void CrearTropaPirata(int type) {
+        Sp.SwitchPirata(type);
     }
 }

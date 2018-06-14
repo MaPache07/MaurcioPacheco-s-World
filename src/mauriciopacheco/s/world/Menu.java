@@ -109,9 +109,9 @@ public class Menu {
                         case 3:
                             
                             break;
-                            
                         case 4:
                             jugador = 2;
+                            turno1 = false;
                             break;
                         default:
                             System.out.println("No ingreso una opcion valida");
@@ -144,6 +144,7 @@ public class Menu {
                             break;
                         case 4:
                             jugador = 1;
+                            turno2 = false;
                             break;
                         default:
                             System.out.println("No ingreso una opcion valida");
@@ -151,6 +152,9 @@ public class Menu {
                     }
                 }
             }
+            
+            
+            fase++;
         }
     }
 }

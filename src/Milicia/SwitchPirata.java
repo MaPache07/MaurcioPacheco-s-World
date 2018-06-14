@@ -13,25 +13,25 @@ import Pirata.Tropas.*;
  */
 public class SwitchPirata {
     
-    public Tropa SwitchPirata(String nombre){
+    public Tropa SwitchPirata(int type){
         
-        switch(nombre){
-            case ("Barco"):
-                Barco b = new Barco();
-                b.crearTropa();
-                return b.getTropa();
-            case ("Piratas"):
-                Piratas p = new Piratas();
-                p.crearTropa();
-                return p.getTropa();
-            case ("Tiburon"):
-                Tiburon t = new Tiburon();
-                t.crearTropa();
-                return t.getTropa();
-            case ("Yonkou"):
+        switch(type){
+            case (1):
                 Yonkou y = new Yonkou();
                 y.crearTropa();
                 return y.getTropa();
+            case (2):
+                Piratas p = new Piratas();
+                p.crearTropa();
+                return p.getTropa();
+            case (3):
+                Tiburon t = new Tiburon();
+                t.crearTropa();
+                return t.getTropa();
+            case (4):
+                Barco b = new Barco();
+                b.crearTropa();
+                return b.getTropa();
         }
         return null;
     }
