@@ -19,7 +19,6 @@ public class GeneradorChakra implements Ninja{
     public void crearEdificacion() {
         GeneradorChakra.setNombre("Generador de Chakra");
         GeneradorChakra.setVida(1000);
-        GeneradorChakra.setCapacidad(1500);
         GeneradorChakra.setCantidad(0);
         GeneradorChakra.setCantxTurno(500);
         GeneradorChakra.setCantTurn(1);

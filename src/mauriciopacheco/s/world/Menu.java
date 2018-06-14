@@ -94,7 +94,7 @@ public class Menu {
                     System.out.println("|----------------------------------------------------|");
                     System.out.println(jugador1.nrec1+": "+jugador1.rec1+" | "+jugador1.nrec2+": "+jugador1.rec2 +" | "+jugador1.nrec3+": "+jugador1.rec3);
                     System.out.println("Elige una de las siguientes acciones:");
-                    System.out.println("1. Edificios");
+                    System.out.println("1. Edificacion");
                     System.out.println("2. Entrenar tropas / construir vehiculos");
                     System.out.println("3. Atacar / Defender");
                     System.out.println("4. Terminar");
@@ -104,7 +104,7 @@ public class Menu {
                             jugador1.Edificacion();
                             break;
                         case 2:
-                            
+                            jugador1.EntrenarConstruir();
                             break;
                         case 3:
                             
@@ -127,7 +127,7 @@ public class Menu {
                     System.out.println("|----------------------------------------------------|");
                     System.out.println(jugador2.nrec1+": "+jugador2.rec1+" | "+jugador2.nrec2+": "+jugador2.rec2 +" | "+jugador2.nrec3+": "+jugador2.rec3);
                     System.out.println("Elige una de las siguientes acciones:");
-                    System.out.println("1. Edificios");
+                    System.out.println("1. Edificacion");
                     System.out.println("2. Entrenar tropas / construir vehiculos");
                     System.out.println("3. Atacar / Defender");
                     System.out.println("4. Terminar");
@@ -137,7 +137,7 @@ public class Menu {
                             jugador2.Edificacion();
                             break;
                         case 2:
-                            
+                            jugador2.EntrenarConstruir();
                             break;
                         case 3:
                             

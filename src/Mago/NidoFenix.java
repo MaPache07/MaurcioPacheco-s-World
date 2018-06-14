@@ -23,6 +23,7 @@ public class NidoFenix implements Mago{
         NidoFenix.setCantidad(0);
         NidoFenix.setCantxTurno(3);
         NidoFenix.setCantTurn(3);
+        NidoFenix.setCodigo(3);
     }
 
     @Override

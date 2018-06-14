@@ -23,6 +23,7 @@ public class BarcoPirata implements Pirata{
         BarcoPirata.setCantidad(0);
         BarcoPirata.setCantxTurno(4);
         BarcoPirata.setCantTurn(4);
+        BarcoPirata.setCodigo(3);
     }
 
     @Override

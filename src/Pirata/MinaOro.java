@@ -19,7 +19,7 @@ public class MinaOro implements Pirata{
     public void crearEdificacion() {
         MinaOro.setNombre("Mina de Oro");
         MinaOro.setVida(1200);
-        MinaOro.setCapacidad(0);
+        MinaOro.setCapacidad(3000);
         MinaOro.setCantidad(0);
         MinaOro.setCantxTurno(0);
         MinaOro.setCantTurn(3);

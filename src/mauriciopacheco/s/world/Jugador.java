@@ -28,7 +28,8 @@ public class Jugador {
     private ArrayList<Tropa> ListTropa = new ArrayList<>();
     private ArrayList<Cuartel> ListCuartel = new ArrayList<>();
     private ArrayList<Recolector> ListRecolector = new ArrayList<>();
-    private ArrayList<CentroMando> ListaCentroMando = new ArrayList<>();
+    private ArrayList<Recolector> ListGenerador = new ArrayList<>();
+    private ArrayList<CentroMando> ListCentroMando = new ArrayList<>();
     
     public void Razas (){
         int o;
@@ -41,7 +42,7 @@ public class Jugador {
             case 1:
                 mago.getMago(7).crearEdificacion();
                 centromando = mago.getMago(7).getCentroMando();
-                ListaCentroMando.add(centromando);
+                ListCentroMando.add(centromando);
                 rec1 = centromando.getCantidad1();
                 rec2 = centromando.getCantidad2();
                 rec3 = centromando.getCantidad3();
@@ -53,7 +54,7 @@ public class Jugador {
             case 2:
                 ninja.getNinja(7).crearEdificacion();
                 centromando = ninja.getNinja(7).getCentroMando();
-                ListaCentroMando.add(centromando);
+                ListCentroMando.add(centromando);
                 rec1 = centromando.getCantidad1();
                 rec2 = centromando.getCantidad2();
                 rec3 = centromando.getCantidad3();
@@ -65,7 +66,7 @@ public class Jugador {
             case 3:
                 pirata.getPirata(7).crearEdificacion();
                 centromando = pirata.getPirata(7).getCentroMando();
-                ListaCentroMando.add(centromando);
+                ListCentroMando.add(centromando);
                 rec1 = centromando.getCantidad1();
                 rec2 = centromando.getCantidad2();
                 rec3 = centromando.getCantidad3();
@@ -79,6 +80,8 @@ public class Jugador {
         }
     }
     
+    ////////////////////////////////////////////EDIFICACION////////////////////////////////////////////
+    
     public void Edificacion(){
         boolean flag = true;
         int o;
@@ -88,7 +91,7 @@ public class Jugador {
             System.out.println("|--------------------EDIFICACION---------------------|");
             System.out.println("1. Crear edificacion");
             System.out.println("2. Mejorar el centro de mando");
-            System.out.println("3. Mostrar los edificios creados");
+            System.out.println("3. Mostrar los edificios en pie");
             System.out.println("4. Recolectar ");
             System.out.println("5. Regresar");
             o = input.nextInt();
@@ -100,10 +103,10 @@ public class Jugador {
                     SubirCentroMando();
                     break;
                 case 3:
-                    
+                    Mostrar();
                     break;
                 case 4:
-                    
+                    Recolectar();
                     break;
                 case 5:
                     flag = false;
@@ -143,10 +146,15 @@ public class Jugador {
                     if(mago.getMago(o).getPrecio1() < rec1 && mago.getMago(o).getPrecio2() < rec2 && mago.getMago(o).getPrecio3() < rec3){
                         mago.getMago(o).crearEdificacion();
                         recolector = mago.getMago(o).getRecolector();
-                        ListRecolector.add(recolector);
                         rec1 = rec1-mago.getMago(o).getPrecio1();
                         rec2 = rec2-mago.getMago(o).getPrecio2();
                         rec3 = rec3-mago.getMago(o).getPrecio3();
+                        if(o == 1){
+                            ListGenerador.add(recolector);
+                        }
+                        else{
+                            ListRecolector.add(recolector);
+                        }
                     }
                     else{
                         System.out.println("No tiene suficientes recursos para construir esta edificacion");
@@ -211,6 +219,9 @@ public class Jugador {
                         pirata.getPirata(o).crearEdificacion();
                         cuartel = pirata.getPirata(o).getCuartel();
                         ListCuartel.add(cuartel);
+                        rec1 = rec1-pirata.getPirata(o).getPrecio1();
+                        rec2 = rec2-pirata.getPirata(o).getPrecio2();
+                        rec3 = rec3-pirata.getPirata(o).getPrecio3();
                     }
                     else{
                         System.out.println("No tiene suficientes recursos para construir esta edificacion");
@@ -256,4 +267,99 @@ public class Jugador {
             System.out.println("El centro de mando ya llego a su limite");
         }
     }
+    
+    public void Mostrar(){
+        System.out.println("Las edificaciones en pie actualmente son: ");
+        System.out.println("- " + ListCentroMando.get(0).getNombre());
+        int size;
+        if(!ListRecolector.isEmpty()){
+            size = ListRecolector.size();
+            for(int i = 0; i < size; i++){
+                if(ListRecolector.get(i).getCantTurn() == 0){
+                    System.out.println("- " + ListRecolector.get(i).getNombre());
+                }
+            }
+        }
+        if(!ListCuartel.isEmpty()){
+            size = ListCuartel.size();
+            for(int i = 0; i < size; i++){
+                if(ListCuartel.get(i).getCantTurn() == 0){
+                    System.out.println("- " + ListCuartel.get(i).getNombre());
+                }
+            }
+        }
+    }
+    
+    public void Recolectar(){
+        if (!ListRecolector.isEmpty()){
+            boolean flag = false;
+            int size = ListRecolector.size(), cont = 0;
+            for(int i = 0; i < size; i++){
+                if (ListRecolector.get(i).getCantTurn() == 0){
+                    flag = true;
+                }
+            }
+            if (flag == true){
+                for(int i = 0; i < size; i++){
+                    if (ListRecolector.get(i).getCantTurn() == 0){
+                        if(ListRecolector.get(i).getCantidad() != 0){
+                            if (ListRecolector.get(i).getCapacidad() == 3000){
+                                rec2 = rec2+ListRecolector.get(i).getCantidad();
+                                ListRecolector.get(i).setCantidad(0);
+                            }
+                            else{
+                                rec3 = rec3+ListRecolector.get(i).getCantidad();
+                                ListRecolector.get(i).setCantidad(0);
+                            }
+                        }
+                        else{
+                            cont++;
+                        }
+                    }
+                }
+                if(cont == size){
+                    System.out.println("Su recolector(es) ya contienen recurso");
+                }
+                else{
+                    System.out.println("Se ha recolectado recusrso(s)");
+                }
+            }
+            else{
+                System.out.println("Su recolector(es) sigue construyendose");
+            }
+        }
+        else{
+            System.out.println("No tiene ningun recolector creado hasta el momento");
+        }
+    }
+    
+    ////////////////////////////////////////////ENTRENAR/CONSTRUIR////////////////////////////////////////////
+    
+    public void EntrenarConstruir(){
+        boolean flag = true;
+        int o;
+        Scanner input = new Scanner(System.in);
+        while(flag){
+            System.out.println("");
+            System.out.println("|-----------------ENTRENAR/CONSTRUIR-----------------|");
+            System.out.println("1. Entrenar milicia");
+            System.out.println("2. Construir/Entrenar un vehiculo");
+            System.out.println("3. Regresar");
+            o = input.nextInt();
+            switch(o){
+                case 1:
+                    
+                    break;
+                case 2:
+                    
+                    break;
+                case 3:
+                    flag = false;
+                    break;
+                default:
+                    System.out.println("No ingreso una opcion valida");
+            }
+        }
+    }
+    
 }

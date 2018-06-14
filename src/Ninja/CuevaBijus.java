@@ -23,6 +23,7 @@ public class CuevaBijus implements Ninja{
         CuevaBijus.setCantidad(0);
         CuevaBijus.setCantxTurno(2);
         CuevaBijus.setCantTurn(2);
+        CuevaBijus.setCodigo(3);
     }
 
     @Override

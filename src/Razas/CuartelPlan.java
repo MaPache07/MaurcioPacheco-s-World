@@ -19,12 +19,14 @@ public interface CuartelPlan {
     public void setCantidad(int cantidad);
     public void setCantxTurno(int cant);
     public void setCantTurn(int turn);
+    public void setCodigo(int codigo);
     public String getNombre();
     public int getVida();
     public int getCapacidad();
     public int getCantidad();
     public int getCantxTurno();
     public int getCantTurn();
+    public int getCodigo();
     public void CrearTropaNinja(String nombre);
     public void CrearTropaMago(String nombre);
     public void CrearTropaPirata(String nombre);

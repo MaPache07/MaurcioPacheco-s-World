@@ -19,7 +19,6 @@ public class GeneradorMagia implements Mago{
     public void crearEdificacion() {
         GeneradorMagia.setNombre("Generador de Magia");
         GeneradorMagia.setVida(800);
-        GeneradorMagia.setCapacidad(1500);
         GeneradorMagia.setCantidad(0);
         GeneradorMagia.setCantxTurno(500);
         GeneradorMagia.setCantTurn(2);

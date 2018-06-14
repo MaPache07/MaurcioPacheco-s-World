@@ -19,7 +19,6 @@ public class GeneradorKairoseki implements Pirata{
     public void crearEdificacion() {
         GeneradorKairoseki.setNombre("Generador de Kairoseki");
         GeneradorKairoseki.setVida(1200);
-        GeneradorKairoseki.setCapacidad(1500);
         GeneradorKairoseki.setCantidad(0);
         GeneradorKairoseki.setCantxTurno(500);
         GeneradorKairoseki.setCantTurn(3);

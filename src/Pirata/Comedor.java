@@ -23,6 +23,7 @@ public class Comedor implements Pirata{
         Comedor.setCantidad(0);
         Comedor.setCantxTurno(3);
         Comedor.setCantTurn(3);
+        Comedor.setCodigo(1);
     }
 
     @Override

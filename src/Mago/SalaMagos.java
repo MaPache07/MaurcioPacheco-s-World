@@ -23,6 +23,7 @@ public class SalaMagos implements Mago{
         SalaMagos.setCantidad(0);
         SalaMagos.setCantxTurno(2);
         SalaMagos.setCantTurn(2);
+        SalaMagos.setCodigo(1);
     }
 
     @Override

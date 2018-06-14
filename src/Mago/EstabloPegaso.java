@@ -23,6 +23,7 @@ public class EstabloPegaso implements Mago{
         EstabloPegaso.setCantidad(0);
         EstabloPegaso.setCantxTurno(2);
         EstabloPegaso.setCantTurn(2);
+        EstabloPegaso.setCodigo(2);
     }
 
     @Override

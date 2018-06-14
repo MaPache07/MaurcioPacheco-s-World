@@ -23,6 +23,7 @@ public class CuartelNinja implements Ninja{
         CuartelNinja.setCantidad(0);
         CuartelNinja.setCantxTurno(1);
         CuartelNinja.setCantTurn(1);
+        CuartelNinja.setCodigo(1);
     }
     
     @Override
