@@ -136,12 +136,15 @@ public class Jugador {
             while (cont < 7){
                 if(raza == 1){
                     System.out.println(cont + "." + " " + mago.getMago(cont).getNombre());
+                    System.out.println("    "+nrec1+": "+mago.getMago(cont).getPrecio1()+" | "+nrec2+": "+mago.getMago(cont).getPrecio2()+" | "+nrec2+": "+mago.getMago(cont).getPrecio3());
                 }
                 if(raza == 2){
                     System.out.println(cont + "." + " " + ninja.getNinja(cont).getNombre());
+                    System.out.println("    "+nrec1+": "+ninja.getNinja(cont).getPrecio1()+" | "+nrec2+": "+ninja.getNinja(cont).getPrecio2()+" | "+nrec2+": "+ninja.getNinja(cont).getPrecio3());
                 }
                 if(raza == 3){
                     System.out.println(cont + "." + " " + pirata.getPirata(cont).getNombre());
+                    System.out.println("    "+nrec1+": "+pirata.getPirata(cont).getPrecio1()+" | "+nrec2+": "+pirata.getPirata(cont).getPrecio2()+" | "+nrec2+": "+pirata.getPirata(cont).getPrecio3());
                 }
                 cont++;
             }
