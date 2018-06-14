@@ -20,25 +20,15 @@ public class Yonkou implements TropaGeneral{
         yonkou.setNombre("Yonkou");
         yonkou.setVida(650);
         yonkou.setAtaque(325);
+        yonkou.setCantTurno(3);
+        yonkou.setLlegada(2);
+        yonkou.setPrecio1(500);
+        yonkou.setPrecio2(0);
+        yonkou.setPrecio3(1500);
     }
 
     @Override
     public Tropa getTropa() {
         return this.yonkou;
-    }
-
-    @Override
-    public int getPrecio1() {
-        return 500;
-    }
-
-    @Override
-    public int getPrecio2() {
-        return 0;
-    }
-
-    @Override
-    public int getPrecio3() {
-        return 1500;
     }
 }

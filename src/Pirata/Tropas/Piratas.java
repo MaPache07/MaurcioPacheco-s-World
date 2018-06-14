@@ -20,25 +20,15 @@ public class Piratas implements TropaGeneral{
         piratas.setNombre("Piratas");
         piratas.setVida(600);
         piratas.setAtaque(300);
+        piratas.setCantTurno(3);
+        piratas.setLlegada(2);
+        piratas.setPrecio1(0);
+        piratas.setPrecio2(750);
+        piratas.setPrecio3(1000);
     }
 
     @Override
     public Tropa getTropa() {
         return this.piratas;
     }
-
-    @Override
-    public int getPrecio1() {
-        return 0;
-    }
-
-    @Override
-    public int getPrecio2() {
-        return 750;
-    }
-
-    @Override
-    public int getPrecio3() {
-        return 1000;
-    }   
 }

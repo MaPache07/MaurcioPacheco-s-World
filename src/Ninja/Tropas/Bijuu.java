@@ -20,25 +20,15 @@ public class Bijuu implements TropaGeneral{
         bijuu.setNombre("Bijuu");
         bijuu.setVida(575);
         bijuu.setAtaque(275);
+        bijuu.setCantTurno(2);
+        bijuu.setLlegada(1);
+        bijuu.setPrecio1(750);
+        bijuu.setPrecio2(1000);
+        bijuu.setPrecio3(1250);
     }
 
     @Override
     public Tropa getTropa() {
         return this.bijuu;
-    }
-
-    @Override
-    public int getPrecio1() {
-        return 750;
-    }
-
-    @Override
-    public int getPrecio2() {
-        return 1000;
-    }
-
-    @Override
-    public int getPrecio3() {
-        return 1250;
     }
 }

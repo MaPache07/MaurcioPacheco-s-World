@@ -20,25 +20,15 @@ public class Hokage implements TropaGeneral{
         Hokage.setNombre("Hokage");
         Hokage.setVida(550);
         Hokage.setAtaque(225);
+        Hokage.setCantTurno(1);
+        Hokage.setLlegada(2);
+        Hokage.setPrecio1(500);
+        Hokage.setPrecio2(0);
+        Hokage.setPrecio3(1500);
     }
 
     @Override
     public Tropa getTropa() {
         return this.Hokage;
-    }
-
-    @Override
-    public int getPrecio1() {
-        return 500;
-    }
-
-    @Override
-    public int getPrecio2() {
-        return 0;
-    }
-
-    @Override
-    public int getPrecio3() {
-        return 1500;
     }
 }

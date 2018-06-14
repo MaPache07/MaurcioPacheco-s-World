@@ -393,7 +393,8 @@ public class Jugador {
             System.out.println("|-----------------ENTRENAR/CONSTRUIR-----------------|");
             System.out.println("1. Entrenar milicia");
             System.out.println("2. Construir un vehiculo");
-            System.out.println("3. Regresar");
+            System.out.println("3. Mostrar tropas/vehiculos listos");
+            System.out.println("4. Regresar");
             o = input.nextInt();
             switch(o){
                 case 1:
@@ -403,6 +404,9 @@ public class Jugador {
                     Construir();
                     break;
                 case 3:
+                    MostrarTropas();
+                    break;
+                case 4:
                     flag = false;
                     break;
                 default:
@@ -428,30 +432,50 @@ public class Jugador {
                 while(cont < 3){
                     if(raza == 1){
                         System.out.println(cont + "." + " " + tropam.SwitchMago(cont).getNombre());
+                        System.out.println("    "+nrec1+": "+tropam.SwitchMago(cont).getPrecio1()+" | "+nrec2+": "+tropam.SwitchMago(cont).getPrecio2()+" | "+nrec3+": "+tropam.SwitchMago(cont).getPrecio3());
                     }
                     if(raza == 2){
                         System.out.println(cont + "." + " " + tropan.SwitchNinja(cont).getNombre());
+                        System.out.println("    "+nrec1+": "+tropan.SwitchNinja(cont).getPrecio1()+" | "+nrec2+": "+tropan.SwitchNinja(cont).getPrecio2()+" | "+nrec3+": "+tropan.SwitchNinja(cont).getPrecio3());
                     }
                     if(raza == 3){
                         System.out.println(cont + "." + " " + tropap.SwitchPirata(cont).getNombre());
+                        System.out.println("    "+nrec1+": "+tropap.SwitchPirata(cont).getPrecio1()+" | "+nrec2+": "+tropap.SwitchPirata(cont).getPrecio2()+" | "+nrec3+": "+tropap.SwitchPirata(cont).getPrecio3());
                     }
                     cont++;
                 }
                 o = input.nextInt();
                 if (o == 1 || o == 2){
                     if(raza == 1){
-                        tropa = tropam.SwitchMago(o);
-                        ListTropa.add(tropa);
+                        if (rec1 > tropam.SwitchMago(o).getPrecio1() && rec2 > tropam.SwitchMago(o).getPrecio2() && rec3 > tropam.SwitchMago(o).getPrecio3()){
+                            tropa = tropam.SwitchMago(o);
+                            ListTropa.add(tropa);
+                            System.out.println("Se empezó a entrenar la tropa seleccionada");
+                        }
+                        else{
+                            System.out.println("No tiene suficientes recursos para entranar la tropa");
+                        }
                     }
                     if(raza == 2){
-                        tropa = tropan.SwitchNinja(o);
-                        ListTropa.add(tropa);
+                        if (rec1 > tropan.SwitchNinja(o).getPrecio1() && rec2 > tropan.SwitchNinja(o).getPrecio2() && rec3 > tropan.SwitchNinja(o).getPrecio3()){
+                            tropa = tropan.SwitchNinja(o);
+                            ListTropa.add(tropa);
+                            System.out.println("Se empezó a entrenar la tropa seleccionada");
+                        }
+                        else{
+                            System.out.println("No tiene suficientes recursos para entranar la tropa");
+                        }
                     }
                     if(raza == 3){
-                        tropa = tropap.SwitchPirata(o);
-                        ListTropa.add(tropa);
+                        if (rec1 > tropap.SwitchPirata(o).getPrecio1() && rec2 > tropap.SwitchPirata(o).getPrecio2() && rec3 > tropap.SwitchPirata(o).getPrecio3()){
+                            tropa = tropap.SwitchPirata(o);
+                            ListTropa.add(tropa);
+                            System.out.println("Se empezó a entrenar la tropa seleccionada");
+                        }
+                        else{
+                            System.out.println("No tiene suficientes recursos para entranar la tropa");
+                        }
                     }
-                    System.out.println("Se empezó a entrenar la tropa seleccionada");
                 }
                 else{
                     System.out.println("Ingreso una opcion no valida");
@@ -482,7 +506,7 @@ public class Jugador {
                 }
             }
             if (flag == true){
-                int contx = 3, cont = 1, o, cant = 0;
+                int contx = 3, cont = 1, o, cant = 0, c = 3;
                 Tropa tropa = new Tropa();
                 Scanner input = new Scanner(System.in);
                 System.out.println("Seleccione el vehiculo que dese construir");
@@ -490,51 +514,92 @@ public class Jugador {
                     if(raza == 1){
                         if(flag1 && contx == 4){
                             System.out.println(cont + "." + " " + tropam.SwitchMago(contx).getNombre());
+                            System.out.println("    "+nrec1+": "+tropam.SwitchMago(contx).getPrecio1()+" | "+nrec2+": "+tropam.SwitchMago(contx).getPrecio2()+" | "+nrec3+": "+tropam.SwitchMago(contx).getPrecio3());
                             cant++;
+                            cont++;
+                            c--;
                         }
                         if (flag2 && contx == 3){
                             System.out.println(cont + "." + " " + tropam.SwitchMago(contx).getNombre());
+                            System.out.println("    "+nrec1+": "+tropam.SwitchMago(contx).getPrecio1()+" | "+nrec2+": "+tropam.SwitchMago(contx).getPrecio2()+" | "+nrec3+": "+tropam.SwitchMago(contx).getPrecio3());
                             cant++;
+                            cont++;
+                            c--;
                         }
                     }
                     if(raza == 2){
                         if (flag1 && contx == 4){
                             System.out.println(cont + "." + " " + tropan.SwitchNinja(contx).getNombre());
+                            System.out.println("    "+nrec1+": "+tropan.SwitchNinja(contx).getPrecio1()+" | "+nrec2+": "+tropan.SwitchNinja(contx).getPrecio2()+" | "+nrec3+": "+tropan.SwitchNinja(contx).getPrecio3());
                             cant++;
+                            cont++;
+                            c--;
                         }
                         if (flag2 && contx == 3){
                             System.out.println(cont + "." + " " + tropan.SwitchNinja(contx).getNombre());
+                            System.out.println("    "+nrec1+": "+tropan.SwitchNinja(contx).getPrecio1()+" | "+nrec2+": "+tropan.SwitchNinja(contx).getPrecio2()+" | "+nrec3+": "+tropan.SwitchNinja(contx).getPrecio3());
                             cant++;
+                            cont++;
+                            c--;
                         }
                     }
                     if(raza == 3){
                         if (flag1 && contx == 4){
                             System.out.println(contx + "." + " " + tropap.SwitchPirata(contx).getNombre());
+                            System.out.println("    "+nrec1+": "+tropap.SwitchPirata(contx).getPrecio1()+" | "+nrec2+": "+tropap.SwitchPirata(contx).getPrecio2()+" | "+nrec3+": "+tropap.SwitchPirata(contx).getPrecio3());
                             cant++;
+                            cont++;
+                            c--;
                         }
                         if (flag2 && contx == 3){
                             System.out.println(contx + "." + " " + tropap.SwitchPirata(contx).getNombre());
+                            System.out.println("    "+nrec1+": "+tropap.SwitchPirata(contx).getPrecio1()+" | "+nrec2+": "+tropap.SwitchPirata(contx).getPrecio2()+" | "+nrec3+": "+tropap.SwitchPirata(contx).getPrecio3());
                             cant++;
+                            cont++;
+                            c--;
                         }
                     }
                     contx++;
-                    cont++;
+                    c++;
                 }
                 o = input.nextInt();
                 if (cant >= o && o > 0){
+                    if (c == 3){
+                        o = o+2;
+                    }
+                    if (c == 4){
+                        o = o+3;
+                    }
                     if(raza == 1){
-                        tropa = tropam.SwitchMago(o);
-                        ListVehiculo.add(tropa);
+                        if (rec1 > tropam.SwitchMago(o).getPrecio1() && rec2 > tropam.SwitchMago(o).getPrecio2() && rec3 > tropam.SwitchMago(o).getPrecio3()){
+                            tropa = tropam.SwitchMago(o);
+                            ListVehiculo.add(tropa);
+                            System.out.println("Se empezó a construir el vehiculo seleccionado");
+                        }
+                        else{
+                            System.out.println("No tiene suficientes recursos para construir el vehiculo");
+                        }
                     }
                     if(raza == 2){
-                        tropa = tropan.SwitchNinja(o);
-                        ListVehiculo.add(tropa);
+                        if (rec1 > tropan.SwitchNinja(o).getPrecio1() && rec2 > tropan.SwitchNinja(o).getPrecio2() && rec3 > tropan.SwitchNinja(o).getPrecio3()){
+                            tropa = tropan.SwitchNinja(o);
+                            ListVehiculo.add(tropa);
+                            System.out.println("Se empezó a construir el vehiculo seleccionado");
+                        }
+                        else{
+                            System.out.println("No tiene suficientes recursos para construir el vehiculo");
+                        }
                     }
                     if(raza == 3){
-                        tropa = tropap.SwitchPirata(o);
-                        ListVehiculo.add(tropa);
+                        if (rec1 > tropap.SwitchPirata(o).getPrecio1() && rec2 > tropap.SwitchPirata(o).getPrecio2() && rec3 > tropap.SwitchPirata(o).getPrecio3()){
+                            tropa = tropap.SwitchPirata(o);
+                            ListVehiculo.add(tropa);
+                            System.out.println("Se empezó a construir el vehiculo seleccionado");
+                        }
+                        else{
+                            System.out.println("No tiene suficientes recursos para construir el vehiculo");
+                        }
                     }
-                    System.out.println("Se empezó a contruir el vehiculo seleccionado");
                 }
                 else{
                     System.out.println("No ingreso una opcion valida");
@@ -546,6 +611,33 @@ public class Jugador {
         }
         else{
             System.out.println("No tiene creado ningun cuartel");
+        }
+    }
+    
+    public void MostrarTropas(){
+        boolean flagt = true, flagv = true;
+        if (!ListTropa.isEmpty()){
+            int size = ListTropa.size();
+            for(int i = 0; i < size; i++){
+                if (ListTropa.get(i).getCantTurno() == 0){
+                    System.out.println("Tropa:");
+                    System.out.println("    - " + ListTropa.get(i).getNombre());
+                    flagt = false;
+                }
+            }
+        }
+        if (!ListVehiculo.isEmpty()){
+            int size = ListVehiculo.size();
+            for(int i = 0; i < size; i++){
+                if (ListVehiculo.get(i).getCantTurno() == 0){
+                    System.out.println("Vehiculo:");
+                    System.out.println("    - " + ListVehiculo.get(i).getNombre());
+                    flagv = false;
+                }
+            }
+        }
+        if (flagt && flagv){
+            System.out.println("No tiene ningun tropa/vehiculo creado hasta el momento");
         }
     }
     
@@ -633,6 +725,38 @@ public class Jugador {
             }
         }
         return mensajea;
+    }
+    
+    public ArrayList Entrenamiento(ArrayList mensajea){
+        String mensaje = "";
+        int size, cant = 0;
+        if (!ListTropa.isEmpty()){
+            size = ListTropa.size();
+            for(int i = 0; i < size; i++){
+                if (ListTropa.get(i).getCantTurno() != 0){
+                    cant = ListTropa.get(i).getCantTurno()-1;
+                    ListTropa.get(i).setCantTurno(cant);
+                    if (ListTropa.get(i).getCantTurno() == 0){
+                        mensaje = "La tropa " + ListTropa.get(i).getNombre() + " ya esta lista para el ataque";
+                        mensajea.add(mensaje);
+                    }
+                }
+            }
+        }
+        if (!ListVehiculo.isEmpty()){
+            size = ListVehiculo.size();
+            for(int i = 0; i < size; i++){
+                if (ListVehiculo.get(i).getCantTurno() != 0){
+                    cant = ListVehiculo.get(i).getCantTurno()-1;
+                    ListVehiculo.get(i).setCantTurno(cant);
+                    if (ListVehiculo.get(i).getCantTurno() == 0){
+                        mensaje = "El vehiculo " + ListVehiculo.get(i).getNombre() + " ya esta listo para el ataque";
+                        mensajea.add(mensaje);
+                    }
+                }
+            }
+        }
+        return null;
     }
     
 }

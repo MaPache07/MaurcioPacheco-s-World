@@ -20,25 +20,15 @@ public class Sapo implements TropaGeneral{
         Sapo.setNombre("Sapo Gigante");
         Sapo.setVida(575);
         Sapo.setAtaque(250);
+        Sapo.setCantTurno(1);
+        Sapo.setLlegada(1);
+        Sapo.setPrecio1(500);
+        Sapo.setPrecio2(1000);
+        Sapo.setPrecio3(0);
     }
 
     @Override
     public Tropa getTropa() {
         return this.Sapo;
-    }
-
-    @Override
-    public int getPrecio1() {
-        return 500;
-    }
-
-    @Override
-    public int getPrecio2() {
-        return 1000;
-    }
-
-    @Override
-    public int getPrecio3() {
-        return 0;
     }
 }

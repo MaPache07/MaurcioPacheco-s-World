@@ -20,25 +20,15 @@ public class Chunin implements TropaGeneral{
         Chunin.setNombre("Chunin");
         Chunin.setVida(500);
         Chunin.setAtaque(200);
+        Chunin.setCantTurno(1);
+        Chunin.setLlegada(2);
+        Chunin.setPrecio1(0);
+        Chunin.setPrecio2(750);
+        Chunin.setPrecio3(1000);
     }
 
     @Override
     public Tropa getTropa() {
         return this.Chunin;
     }
-
-    @Override
-    public int getPrecio1() {
-        return 0;
-    }
-
-    @Override
-    public int getPrecio2() {
-        return 750;
-    }
-
-    @Override
-    public int getPrecio3() {
-        return 1000;
-    }   
 }

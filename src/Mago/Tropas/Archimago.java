@@ -20,25 +20,16 @@ public class Archimago implements TropaGeneral{
         archimago.setNombre("Archimago");
         archimago.setVida(450);
         archimago.setAtaque(425);
+        archimago.setCantTurno(2);
+        archimago.setLlegada(2);
+        archimago.setPrecio1(500);
+        archimago.setPrecio2(0);
+        archimago.setPrecio3(1500);
+        
     }
 
     @Override
     public Tropa getTropa() {
         return this.archimago;
-    }
-
-    @Override
-    public int getPrecio1() {
-        return 500;
-    }
-
-    @Override
-    public int getPrecio2() {
-        return 0;
-    }
-
-    @Override
-    public int getPrecio3() {
-        return 1500;
     }
 }

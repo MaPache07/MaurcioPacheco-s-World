@@ -20,25 +20,15 @@ public class Barco implements TropaGeneral{
         barco.setNombre("Barco");
         barco.setVida(675);
         barco.setAtaque(375);
+        barco.setCantTurno(4);
+        barco.setLlegada(1);
+        barco.setPrecio1(750);
+        barco.setPrecio2(1000);
+        barco.setPrecio3(1250);
     }
 
     @Override
     public Tropa getTropa() {
         return this.barco;
-    }
-
-    @Override
-    public int getPrecio1() {
-        return 750;
-    }
-
-    @Override
-    public int getPrecio2() {
-        return 1000;
-    }
-
-    @Override
-    public int getPrecio3() {
-        return 1250;
     }
 }

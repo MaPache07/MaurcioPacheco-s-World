@@ -20,25 +20,15 @@ public class MagosElementales implements TropaGeneral{
         magos.setNombre("Magos Elementales");
         magos.setVida(400);
         magos.setAtaque(400);
+        magos.setCantTurno(2);
+        magos.setLlegada(2);
+        magos.setPrecio1(0);
+        magos.setPrecio2(750);
+        magos.setPrecio3(1000);
     }
 
     @Override
     public Tropa getTropa() {
         return this.magos;
-    }
-
-    @Override
-    public int getPrecio1() {
-        return 0;
-    }
-
-    @Override
-    public int getPrecio2() {
-        return 750;
-    }
-
-    @Override
-    public int getPrecio3() {
-        return 1000;
     }
 }

@@ -161,8 +161,10 @@ public class Menu {
             }
             jugador1.RecolectarRecurco();
             jugador1.Construccion(Mensaje1);
+            jugador1.Entrenamiento(Mensaje1);
             jugador2.RecolectarRecurco();
             jugador2.Construccion(Mensaje2);
+            jugador2.Entrenamiento(Mensaje2);
             fase++;
         }
     }

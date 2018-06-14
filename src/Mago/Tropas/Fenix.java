@@ -20,25 +20,15 @@ public class Fenix implements TropaGeneral{
         fenix.setNombre("Fenix");
         fenix.setVida(475);
         fenix.setAtaque(475);
+        fenix.setCantTurno(3);
+        fenix.setLlegada(1);
+        fenix.setPrecio1(750);
+        fenix.setPrecio2(1000);
+        fenix.setPrecio3(1250);
     }
 
     @Override
     public Tropa getTropa() {
         return this.fenix;
-    }
-
-    @Override
-    public int getPrecio1() {
-        return 750;
-    }
-
-    @Override
-    public int getPrecio2() {
-        return 1000;
-    }
-
-    @Override
-    public int getPrecio3() {
-        return 1250;
     }
 }

@@ -21,7 +21,7 @@ public class EstabloPegaso implements Mago{
         EstabloPegaso.setVida(900);
         EstabloPegaso.setCapacidad(10);
         EstabloPegaso.setCantidad(0);
-        EstabloPegaso.setCantxTurno(2);
+        //EstabloPegaso.setCantxTurno(2);
         EstabloPegaso.setCantTurn(2);
         EstabloPegaso.setCodigo(2);
     }

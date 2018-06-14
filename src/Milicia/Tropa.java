@@ -12,7 +12,7 @@ package Milicia;
 public class Tropa implements TropaPlan{
     
     private String nombre;
-    private int vida, ataque, cant, precio;
+    private int vida, ataque, cant, llegada, precio1, precio2, precio3;
     
     @Override
     public void setNombre(String nombre) {
@@ -33,7 +33,27 @@ public class Tropa implements TropaPlan{
     public void setCantTurno(int cant) {
         this.cant = cant;
     }
+    
+    @Override
+    public void setLlegada(int llegada) {
+        this.llegada = llegada;
+    }
+    
+    @Override
+    public void setPrecio1(int precio) {
+        this.precio1 = precio;
+    }
 
+    @Override
+    public void setPrecio2(int precio) {
+        this.precio2 = precio;
+    }
+
+    @Override
+    public void setPrecio3(int precio) {
+        this.precio3 = precio;
+    }
+    
     @Override
     public String getNombre() {
         return this.nombre;
@@ -52,5 +72,25 @@ public class Tropa implements TropaPlan{
     @Override
     public int getCantTurno() {
         return this.cant;
+    }
+    
+    @Override
+    public int getLlegada() {
+        return this.llegada;
+    }
+    
+    @Override
+    public int getPrecio1() {
+        return this.precio1;
+    }
+
+    @Override
+    public int getPrecio2() {
+        return this.precio2;
+    }
+
+    @Override
+    public int getPrecio3() {
+        return this.precio3;
     }
 }

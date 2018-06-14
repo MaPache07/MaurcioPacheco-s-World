@@ -20,25 +20,15 @@ public class Pegaso implements TropaGeneral{
         pegaso.setNombre("Pegaso");
         pegaso.setVida(475);
         pegaso.setAtaque(450);
+        pegaso.setCantTurno(2);
+        pegaso.setLlegada(1);
+        pegaso.setPrecio1(500);
+        pegaso.setPrecio2(1000);
+        pegaso.setPrecio3(0);
     }
 
     @Override
     public Tropa getTropa() {
         return this.pegaso;
-    }
-
-    @Override
-    public int getPrecio1() {
-        return 500;
-    }
-
-    @Override
-    public int getPrecio2() {
-        return 1000;
-    }
-
-    @Override
-    public int getPrecio3() {
-        return 0;
     }
 }

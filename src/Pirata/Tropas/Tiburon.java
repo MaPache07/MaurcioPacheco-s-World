@@ -20,25 +20,15 @@ public class Tiburon implements TropaGeneral{
         tiburon.setNombre("Tiburon");
         tiburon.setVida(675);
         tiburon.setAtaque(350);
+        tiburon.setCantTurno(3);
+        tiburon.setLlegada(1);
+        tiburon.setPrecio1(500);
+        tiburon.setPrecio2(1000);
+        tiburon.setPrecio3(0);
     }
 
     @Override
     public Tropa getTropa() {
         return this.tiburon;
-    }
-
-    @Override
-    public int getPrecio1() {
-        return 500;
-    }
-
-    @Override
-    public int getPrecio2() {
-        return 1000;
-    }
-
-    @Override
-    public int getPrecio3() {
-        return 0;
     }
 }
