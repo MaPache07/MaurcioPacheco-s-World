@@ -22,9 +22,9 @@ public class ArbolVida implements Mago{
         ArbolVida.setCapacidad1(3000);
         ArbolVida.setCapacidad2(5000);
         ArbolVida.setCapacidad3(10000);
-        ArbolVida.setCantidad1(0);
-        ArbolVida.setCantidad2(0);
-        ArbolVida.setCantidad3(0);
+        ArbolVida.setCantidad1(3000);
+        ArbolVida.setCantidad2(5000);
+        ArbolVida.setCantidad3(10000);
         ArbolVida.setNivel(1);
     }
 
@@ -45,40 +45,16 @@ public class ArbolVida implements Mago{
 
     @Override
     public int getPrecio1() {
-        switch (ArbolVida.getNivel()){
-            case 1:
-                return 825;
-            case 2:
-                return 1072;
-            case 3:
-                return 1610;
-        }
         return 0;
     }
 
     @Override
     public int getPrecio2() {
-        switch (ArbolVida.getNivel()){
-            case 1:
-                return 1375;
-            case 2:
-                return 1787;
-            case 3:
-                return 2685;
-        }
         return 0;
     }
 
     @Override
     public int getPrecio3() {
-        switch (ArbolVida.getNivel()){
-            case 1:
-                return 2750;
-            case 2:
-                return 3575;
-            case 3:
-                return 5365;
-        }
         return 0;
     }
 

@@ -23,8 +23,8 @@ public class Jugador {
     FactoryNinja ninja = new FactoryNinja();
     FactoryPirata pirata = new FactoryPirata();
     CentroMando centromando = new CentroMando();
-    int raza;
-    private int rec1, rec2, rec3;
+    int rec1, rec2, rec3, raza;
+    String nrec1, nrec2, nrec3;
     private ArrayList<Tropa> ListTropa = new ArrayList<>();
     private ArrayList<Cuartel> ListCuartel = new ArrayList<>();
     private ArrayList<Recolector> ListRecolector = new ArrayList<>();
@@ -42,18 +42,36 @@ public class Jugador {
                 mago.getMago(7).crearEdificacion();
                 centromando = mago.getMago(7).getCentroMando();
                 ListaCentroMando.add(centromando);
+                rec1 = centromando.getCantidad1();
+                rec2 = centromando.getCantidad2();
+                rec3 = centromando.getCantidad3();
+                nrec1 = "Magia";
+                nrec2 = "Eter";
+                nrec3 = "Elixir";
                 raza = 1;
                 break;
             case 2:
                 ninja.getNinja(7).crearEdificacion();
                 centromando = ninja.getNinja(7).getCentroMando();
                 ListaCentroMando.add(centromando);
+                rec1 = centromando.getCantidad1();
+                rec2 = centromando.getCantidad2();
+                rec3 = centromando.getCantidad3();
+                nrec1 = "Chakra";
+                nrec2 = "Piedra lunar";
+                nrec3 = "Metal";
                 raza = 2;
                 break;
             case 3:
                 pirata.getPirata(7).crearEdificacion();
                 centromando = pirata.getPirata(7).getCentroMando();
                 ListaCentroMando.add(centromando);
+                rec1 = centromando.getCantidad1();
+                rec2 = centromando.getCantidad2();
+                rec3 = centromando.getCantidad3();
+                nrec1 = "Kairoseki";
+                nrec2 = "Oro";
+                nrec3 = "Ebano";
                 raza = 3;
                 break;
             default:
@@ -79,7 +97,7 @@ public class Jugador {
                     CrearEdificacion();
                     break;
                 case 2:
-                    
+                    SubirCentroMando();
                     break;
                 case 3:
                     
@@ -122,39 +140,120 @@ public class Jugador {
             o = input.nextInt();
             if(o == 1 || o == 2 || o == 3){
                 if(raza == 1){
-                    mago.getMago(o).crearEdificacion();
-                    recolector = mago.getMago(o).getRecolector();
-                    ListRecolector.add(recolector);
+                    if(mago.getMago(o).getPrecio1() < rec1 && mago.getMago(o).getPrecio2() < rec2 && mago.getMago(o).getPrecio3() < rec3){
+                        mago.getMago(o).crearEdificacion();
+                        recolector = mago.getMago(o).getRecolector();
+                        ListRecolector.add(recolector);
+                        rec1 = rec1-mago.getMago(o).getPrecio1();
+                        rec2 = rec2-mago.getMago(o).getPrecio2();
+                        rec3 = rec3-mago.getMago(o).getPrecio3();
+                    }
+                    else{
+                        System.out.println("No tiene suficientes recursos para construir esta edificacion");
+                    }
                 }
                 if(raza == 2){
-                    ninja.getNinja(o).crearEdificacion();
-                    recolector = ninja.getNinja(o).getRecolector();
-                    ListRecolector.add(recolector);
+                    if(ninja.getNinja(o).getPrecio1() < rec1 && ninja.getNinja(o).getPrecio2() < rec2 && ninja.getNinja(o).getPrecio3() < rec3){
+                        ninja.getNinja(o).crearEdificacion();
+                        recolector = ninja.getNinja(o).getRecolector();
+                        ListRecolector.add(recolector);
+                        rec1 = rec1-ninja.getNinja(o).getPrecio1();
+                        rec2 = rec2-ninja.getNinja(o).getPrecio2();
+                        rec3 = rec3-ninja.getNinja(o).getPrecio3();
+                    }
+                    else{
+                        System.out.println("No tiene suficientes recursos para construir esta edificacion");
+                    }
                 }
                 if(raza == 3){
-                    pirata.getPirata(o).crearEdificacion();
-                    recolector = pirata.getPirata(o).getRecolector();
-                    ListRecolector.add(recolector);
+                    if(pirata.getPirata(o).getPrecio1() < rec1 && pirata.getPirata(o).getPrecio2() < rec2 && pirata.getPirata(o).getPrecio3() < rec3){
+                        pirata.getPirata(o).crearEdificacion();
+                        recolector = pirata.getPirata(o).getRecolector();
+                        ListRecolector.add(recolector);
+                        rec1 = rec1-pirata.getPirata(o).getPrecio1();
+                        rec2 = rec2-pirata.getPirata(o).getPrecio2();
+                        rec3 = rec3-pirata.getPirata(o).getPrecio3();
+                    }
+                    else{
+                        System.out.println("No tiene suficientes recursos para construir esta edificacion");
+                    }
                 }
             }
             if (o == 4 || o == 5 || o == 6){
                 if(raza == 1){
-                    mago.getMago(o).crearEdificacion();
-                    cuartel = mago.getMago(o).getCuartel();
-                    ListCuartel.add(cuartel);
+                    if(mago.getMago(o).getPrecio1() < rec1 && mago.getMago(o).getPrecio2() < rec2 && mago.getMago(o).getPrecio3() < rec3){
+                        mago.getMago(o).crearEdificacion();
+                        cuartel = mago.getMago(o).getCuartel();
+                        ListCuartel.add(cuartel);
+                        rec1 = rec1-mago.getMago(o).getPrecio1();
+                        rec2 = rec2-mago.getMago(o).getPrecio2();
+                        rec3 = rec3-mago.getMago(o).getPrecio3();
+                    }
+                    else{
+                        System.out.println("No tiene suficientes recursos para construir esta edificacion");
+                    }
                 }
                 if(raza == 2){
-                    ninja.getNinja(o).crearEdificacion();
-                    cuartel = ninja.getNinja(o).getCuartel();
-                    ListCuartel.add(cuartel);
+                    if(ninja.getNinja(o).getPrecio1() < rec1 && ninja.getNinja(o).getPrecio2() < rec2 && ninja.getNinja(o).getPrecio3() < rec3){
+                        ninja.getNinja(o).crearEdificacion();
+                        cuartel = ninja.getNinja(o).getCuartel();
+                        ListCuartel.add(cuartel);
+                        rec1 = rec1-ninja.getNinja(o).getPrecio1();
+                        rec2 = rec2-ninja.getNinja(o).getPrecio2();
+                        rec3 = rec3-ninja.getNinja(o).getPrecio3();
+                    }
+                    else{
+                        System.out.println("No tiene suficientes recursos para construir esta edificacion");
+                    }
                 }
                 if(raza == 3){
-                    pirata.getPirata(o).crearEdificacion();
-                    cuartel = pirata.getPirata(o).getCuartel();
-                    ListCuartel.add(cuartel);
+                    if(pirata.getPirata(o).getPrecio1() < rec1 && pirata.getPirata(o).getPrecio2() < rec2 && pirata.getPirata(o).getPrecio3() < rec3){
+                        pirata.getPirata(o).crearEdificacion();
+                        cuartel = pirata.getPirata(o).getCuartel();
+                        ListCuartel.add(cuartel);
+                    }
+                    else{
+                        System.out.println("No tiene suficientes recursos para construir esta edificacion");
+                    }
                 }
             }
             flag = false;
+        }
+    }
+    
+    public void SubirCentroMando(){
+        int n = centromando.getNivel();
+        if(n < 4){
+            if(centromando.getPrecio1() < rec1 && centromando.getPrecio2() < rec2 && centromando.getPrecio3() < rec3){
+                if(n == 1){
+                    centromando.setCapacidad1((int) (centromando.getCapacidad1()*1.1));
+                    centromando.setCapacidad2((int) (centromando.getCapacidad2()*1.1));
+                    centromando.setCapacidad3((int) (centromando.getCapacidad3()*1.1));
+                    centromando.setNivel(2);
+                }
+                if(n == 2){
+                    centromando.setCapacidad1((int) (centromando.getCapacidad1()*1.3));
+                    centromando.setCapacidad1((int) (centromando.getCapacidad1()*1.3));
+                    centromando.setCapacidad1((int) (centromando.getCapacidad1()*1.3));
+                    centromando.setNivel(3);
+                }
+                if(n == 3){
+                    centromando.setCapacidad1((int) (centromando.getCapacidad1()*1.5));
+                    centromando.setCapacidad1((int) (centromando.getCapacidad1()*1.5));
+                    centromando.setCapacidad1((int) (centromando.getCapacidad1()*1.5));
+                    centromando.setNivel(4);
+                }
+                rec1 = rec1-centromando.getPrecio1();
+                rec2 = rec2-centromando.getPrecio2();
+                rec3 = rec3-centromando.getPrecio3();
+                System.out.println("¡El centro de mando ha subido al nivel "+centromando.getNivel()+"!");
+            }
+            else{
+                System.out.println("No tiene suficientes recursos para subir de nivel el centro de mando");
+            }
+        }
+        else{
+            System.out.println("El centro de mando ya llego a su limite");
         }
     }
 }

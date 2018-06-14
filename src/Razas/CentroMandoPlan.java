@@ -28,4 +28,7 @@ public interface CentroMandoPlan {
     public int getCantidad2();
     public int getCantidad3();
     public int getNivel();
+    public int getPrecio1();
+    public int getPrecio2();
+    public int getPrecio3();
 }

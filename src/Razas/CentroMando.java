@@ -103,5 +103,43 @@ public class CentroMando implements CentroMandoPlan{
     public int getNivel() {
         return this.nivel;
     }
-    
+
+    @Override
+    public int getPrecio1() {
+        switch (nivel){
+            case 1:
+                return 825;
+            case 2:
+                return 1072;
+            case 3:
+                return 1610;
+        }
+        return 0;
+    }
+
+    @Override
+    public int getPrecio2() {
+        switch (nivel){
+            case 1:
+                return 1375;
+            case 2:
+                return 1787;
+            case 3:
+                return 2685;
+        }
+        return 0;
+    }
+
+    @Override
+    public int getPrecio3() {
+        switch (nivel){
+            case 1:
+                return 2750;
+            case 2:
+                return 3575;
+            case 3:
+                return 5365;
+        }
+        return 0;
+    }
 }

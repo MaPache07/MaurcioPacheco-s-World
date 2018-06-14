@@ -85,13 +85,14 @@ public class Menu {
             System.out.println("");
             System.out.println("|-----------------------FASE " + fase + "-----------------------|");
             while(turno1 || turno2){
-                System.out.println("");
-                System.out.println("|----------------TURNO DEL JUGADOR #" + jugador + "----------------|");
                 while(jugador == 1){
                     int o1;
                     Scanner input1 = new Scanner(System.in);
                     System.out.println("");
+                    System.out.println("|----------------TURNO DEL JUGADOR #" + jugador + "----------------|");
+                    System.out.println("");
                     System.out.println("|----------------------------------------------------|");
+                    System.out.println(jugador1.nrec1+": "+jugador1.rec1+" | "+jugador1.nrec2+": "+jugador1.rec2 +" | "+jugador1.nrec3+": "+jugador1.rec3);
                     System.out.println("Elige una de las siguientes acciones:");
                     System.out.println("1. Edificios");
                     System.out.println("2. Entrenar tropas / construir vehiculos");
@@ -110,7 +111,7 @@ public class Menu {
                             break;
                             
                         case 4:
-                            
+                            jugador = 2;
                             break;
                         default:
                             System.out.println("No ingreso una opcion valida");
@@ -120,7 +121,11 @@ public class Menu {
                 while(jugador == 2){
                     int o2;
                     Scanner input2 = new Scanner(System.in);
+                    System.out.println("");
+                    System.out.println("|----------------TURNO DEL JUGADOR #" + jugador + "----------------|");
+                    System.out.println("");
                     System.out.println("|----------------------------------------------------|");
+                    System.out.println(jugador2.nrec1+": "+jugador2.rec1+" | "+jugador2.nrec2+": "+jugador2.rec2 +" | "+jugador2.nrec3+": "+jugador2.rec3);
                     System.out.println("Elige una de las siguientes acciones:");
                     System.out.println("1. Edificios");
                     System.out.println("2. Entrenar tropas / construir vehiculos");
@@ -138,7 +143,7 @@ public class Menu {
                             
                             break;
                         case 4:
-                            
+                            jugador = 1;
                             break;
                         default:
                             System.out.println("No ingreso una opcion valida");

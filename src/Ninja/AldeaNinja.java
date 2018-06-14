@@ -22,9 +22,9 @@ public class AldeaNinja implements Ninja{
         AldeaNinja.setCapacidad1(3000);
         AldeaNinja.setCapacidad2(5000);
         AldeaNinja.setCapacidad3(10000);
-        AldeaNinja.setCantidad1(0);
-        AldeaNinja.setCantidad2(0);
-        AldeaNinja.setCantidad3(0);
+        AldeaNinja.setCantidad1(3000);
+        AldeaNinja.setCantidad2(5000);
+        AldeaNinja.setCantidad3(10000);
         AldeaNinja.setNivel(1);
     }
 
@@ -45,40 +45,16 @@ public class AldeaNinja implements Ninja{
 
     @Override
     public int getPrecio1() {
-        switch (AldeaNinja.getNivel()){
-            case 1:
-                return 825;
-            case 2:
-                return 1072;
-            case 3:
-                return 1610;
-        }
         return 0;
     }
 
     @Override
     public int getPrecio2() {
-        switch (AldeaNinja.getNivel()){
-            case 1:
-                return 1375;
-            case 2:
-                return 1787;
-            case 3:
-                return 2685;
-        }
         return 0;
     }
 
     @Override
     public int getPrecio3() {
-        switch (AldeaNinja.getNivel()){
-            case 1:
-                return 2750;
-            case 2:
-                return 3575;
-            case 3:
-                return 5365;
-        }
         return 0;
     }
 
