@@ -326,12 +326,26 @@ public class Jugador {
                 if (ListRecolector.get(i).getCantTurn() == 0){
                     if(ListRecolector.get(i).getCantidad() != 0){
                         if (ListRecolector.get(i).getCapacidad() == 3000){
-                            rec2 = rec2+ListRecolector.get(i).getCantidad();
-                            ListRecolector.get(i).setCantidad(0);
+                            if(rec2+ListRecolector.get(i).getCantidad() <= ListCentroMando.get(0).getCapacidad2()){
+                                rec2 = rec2+ListRecolector.get(i).getCantidad();
+                                ListRecolector.get(i).setCantidad(0);
+                            }
+                            else{
+                                int aux = ListCentroMando.get(0).getCapacidad2()-rec2;
+                                rec2 = rec2+aux;
+                                ListRecolector.get(i).setCantidad(ListRecolector.get(i).getCantidad()-aux);
+                            }
                         }
                         else{
-                            rec3 = rec3+ListRecolector.get(i).getCantidad();
-                            ListRecolector.get(i).setCantidad(0);
+                            if(rec3+ListRecolector.get(i).getCantidad() <= ListCentroMando.get(0).getCapacidad3()){
+                                rec3 = rec3+ListRecolector.get(i).getCantidad();
+                                ListRecolector.get(i).setCantidad(0);
+                            }
+                            else{
+                                int aux = ListCentroMando.get(0).getCapacidad3()-rec3;
+                                rec3 = rec3+aux;
+                                ListRecolector.get(i).setCantidad(ListRecolector.get(i).getCantidad()-aux);
+                            }
                         }
                     }
                     else{
@@ -776,7 +790,14 @@ public class Jugador {
             int size = ListGenerador.size();
             for(int i = 0; i < size; i++){
                 if (ListGenerador.get(i).getCantTurn() == 0 && ListGenerador.get(i).getVida() > 0){
-                    rec1 = rec1+ListGenerador.get(i).getCantxTurno();
+                    if(rec1+ListGenerador.get(i).getCantxTurno() <= ListCentroMando.get(0).getCapacidad1()){
+                        rec1 = rec1+ListGenerador.get(i).getCantxTurno();
+                    }
+                    else{
+                        int Aux = ListCentroMando.get(0).getCapacidad1()-rec1;
+                        rec1 = rec1+Aux;
+                        ListGenerador.get(i).setCantidad(ListGenerador.get(i).getCantxTurno()-Aux);
+                    }
                 }
             }
         }
