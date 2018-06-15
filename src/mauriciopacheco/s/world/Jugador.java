@@ -304,38 +304,17 @@ public class Jugador {
     public void Mostrar(){
         System.out.println("Las edificaciones en pie actualmente son: ");
         System.out.println("- " + ListCentroMando.get(0).getNombre());
-        int size;
-        if(!ListGenerador.isEmpty()){
-            size = ListGenerador.size();
-            for(int i = 0; i < size; i++){
-                if(ListGenerador.get(i).getCantTurn() == 0){
-                    System.out.println("- " + ListGenerador.get(i).getNombre());
-                }
-            }
+        if(ValidarRecolector(ListGenerador)){
+            MostrarRecolector(ListGenerador, 0, false);
         }
-        if(!ListRecolector.isEmpty()){
-            size = ListRecolector.size();
-            for(int i = 0; i < size; i++){
-                if(ListRecolector.get(i).getCantTurn() == 0){
-                    System.out.println("- " + ListRecolector.get(i).getNombre());
-                }
-            }
+        if(ValidarRecolector(ListRecolector)){
+            MostrarRecolector(ListRecolector, 0, false);
         }
-        if(!ListCuartel.isEmpty()){
-            size = ListCuartel.size();
-            for(int i = 0; i < size; i++){
-                if(ListCuartel.get(i).getCantTurn() == 0){
-                    System.out.println("- " + ListCuartel.get(i).getNombre());
-                }
-            }
+        if(ValidarCuartel(ListCuartel)){
+            MostrarCuartel(ListCuartel, 0, false);
         }
-        if(!ListConstructor.isEmpty()){
-            size = ListConstructor.size();
-            for(int i = 0; i < size; i++){
-                if(ListConstructor.get(i).getCantTurn() == 0){
-                    System.out.println("- " + ListConstructor.get(i).getNombre());
-                }
-            }
+        if(ValidarCuartel(ListConstructor)){
+            MostrarCuartel(ListConstructor, 0, false);
         }
     }
     
@@ -838,13 +817,115 @@ public class Jugador {
         return null;
     }
     
+    public void Atacando(ArrayList mensaje1, ArrayList mensaje2){
+        if(ValidarTropa(ListTropa)){
+            AtacandoBase(ListTropa, mensaje1, mensaje2);
+            Llegada(ListTropa, mensaje1);
+        }
+        if(ValidarTropa(ListVehiculo)){
+            AtacandoBase(ListVehiculo, mensaje1, mensaje2);
+            Llegada(ListVehiculo, mensaje1);
+        }
+    }
+    
+    public void Llegada(ArrayList<Tropa> array, ArrayList mensajea){
+        String mensaje;
+        int size = array.size(), llegada;
+        for(int i = 0; i < size; i++){
+            if(array.get(i).getObjetivoR() != null || array.get(i).getObjetivoC() != null || array.get(i).getObjetivoT() != null){
+                if (array.get(i).getLlegada() != 0){
+                    llegada = array.get(i).getLlegada()-1;
+                    array.get(i).setLlegada(llegada);
+                    if (array.get(i).getLlegada() == 0){
+                        mensaje = "La tropa/vehiculo " + array.get(i).getNombre() + " ha llegado a la base enemiga";
+                        mensajea.add(mensaje);
+                    }
+                }
+            }
+        }
+    }
+    
+    public void AtacandoBase(ArrayList<Tropa> array, ArrayList mensajea1, ArrayList mensajea2){
+        String mensaje1, mensaje2;
+        int ataque, golpe;
+        int size = array.size(), llegada;
+        for(int i = 0; i < size; i++){
+            if(array.get(i).getObjetivoR() != null){
+                if (array.get(i).getLlegada() == 0){
+                    ataque = array.get(i).getAtaque();
+                    golpe = array.get(i).getObjetivoR().getVida() - ataque;
+                    if (golpe <= 0){
+                        golpe = 0;
+                    }
+                    array.get(i).getObjetivoR().setVida(golpe);
+                    mensaje1 = "La tropa " + array.get(i).getNombre() + " a hecho " + ataque + " de daño";
+                    mensajea1.add(mensaje1);
+                    mensaje2 = "La edificacion " + array.get(i).getObjetivoR().getNombre() + " ha recibido " + ataque + " de daño";
+                    mensajea2.add(mensaje2);
+                    if (golpe == 0){
+                        array.get(i).setObjetivoR(null);
+                        mensaje1 = "La tropa " + array.get(i).getNombre() + " ha destruido la edificacion " + array.get(i).getObjetivoR().getNombre();
+                        mensaje2 = "La edificacion " + array.get(i).getObjetivoR().getNombre() + " ha sido destruida";
+                        mensajea1.add(mensaje1);
+                        mensajea2.add(mensaje2);
+                        mensaje1 = "Selecciona otro objetivo para la tropa " + array.get(i).getNombre();
+                    }
+                }
+            }
+            if (array.get(i).getObjetivoC() != null){
+                if (array.get(i).getLlegada() == 0){
+                    ataque = array.get(i).getAtaque();
+                    golpe = array.get(i).getObjetivoC().getVida() - ataque;
+                    if (golpe <= 0){
+                        golpe = 0;
+                    }
+                    array.get(i).getObjetivoC().setVida(golpe);
+                    mensaje1 = "La tropa " + array.get(i).getNombre() + " a hecho " + ataque + " de daño";
+                    mensajea1.add(mensaje1);
+                    mensaje2 = "La edificacion " + array.get(i).getObjetivoC().getNombre() + " ha recibido " + ataque + " de daño";
+                    mensajea2.add(mensaje2);
+                    if (golpe == 0){
+                        array.get(i).setObjetivoC(null);
+                        mensaje1 = "La tropa " + array.get(i).getNombre() + " ha destruido la edificacion " + array.get(i).getObjetivoC().getNombre();
+                        mensaje2 = "La edificacion " + array.get(i).getObjetivoC().getNombre() + " ha sido destruida";
+                        mensajea1.add(mensaje1);
+                        mensajea2.add(mensaje2);
+                        mensaje1 = "Selecciona otro objetivo para la tropa " + array.get(i).getNombre();
+                    }
+                }
+            }
+            if (array.get(i).getObjetivoT() != null){
+                if (array.get(i).getLlegada() == 0){
+                    ataque = array.get(i).getAtaque();
+                    golpe = array.get(i).getObjetivoT().getVida() - ataque;
+                    if (golpe <= 0){
+                        golpe = 0;
+                    }
+                    array.get(i).getObjetivoT().setVida(golpe);
+                    mensaje1 = "La tropa " + array.get(i).getNombre() + " a hecho " + ataque + " de daño";
+                    mensajea1.add(mensaje1);
+                    mensaje2 = "La tropa " + array.get(i).getObjetivoT().getNombre() + " ha recibido " + ataque + " de daño";
+                    mensajea2.add(mensaje2);
+                    if (golpe == 0){
+                        array.get(i).setObjetivoT(null);
+                        mensaje1 = "La tropa " + array.get(i).getNombre() + " ha destruido la edificacion " + array.get(i).getObjetivoT().getNombre();
+                        mensaje2 = "La edificacion " + array.get(i).getObjetivoT().getNombre() + " ha sido destruida";
+                        mensajea1.add(mensaje1);
+                        mensajea2.add(mensaje2);
+                        mensaje1 = "Selecciona otro objetivo para la tropa " + array.get(i).getNombre();
+                    }
+                }
+            }
+        }
+    }
+    
     ////////////////////////////////////////////////GENERAL////////////////////////////////////////////////
     
     public int MostrarRecolector(ArrayList<Recolector> array, int cont, boolean flag){
         if(!array.isEmpty()){
             int size = array.size();
             for(int i = 0; i < size; i++){
-                if(array.get(i).getCantTurn() == 0){
+                if(array.get(i).getCantTurn() == 0 && array.get(i).getVida() > 0){
                     if (flag == false){
                         System.out.println("- " + array.get(i).getNombre());
                     }
@@ -862,7 +943,7 @@ public class Jugador {
         if(!array.isEmpty()){
             int size = array.size();
             for(int i = 0; i < size; i++){
-                if(array.get(i).getCantTurn() == 0){
+                if(array.get(i).getCantTurn() == 0 && array.get(i).getVida() > 0){
                     if (flag == false){
                         System.out.println("- " + array.get(i).getNombre());
                     }
@@ -880,7 +961,7 @@ public class Jugador {
         if(!array.isEmpty()){
             int size = array.size();
             for(int i = 0; i < size; i++){
-                if(array.get(i).getCantTurno() == 0){
+                if(array.get(i).getCantTurno() == 0 && array.get(i).getVida() > 0){
                     if (flag == false){
                         System.out.println("- " + array.get(i).getNombre());
                     }
@@ -898,7 +979,7 @@ public class Jugador {
         if(!array.isEmpty()){
             int size = array.size();
             for(int i = 0; i < size; i++){
-                if(array.get(i).getCantTurn() == 0){
+                if(array.get(i).getCantTurn() == 0 && array.get(i).getVida() > 0){
                     return true;
                 }
             }
@@ -910,7 +991,7 @@ public class Jugador {
         if(!array.isEmpty()){
             int size = array.size();
             for(int i = 0; i < size; i++){
-                if(array.get(i).getCantTurn() == 0){
+                if(array.get(i).getCantTurn() == 0 && array.get(i).getVida() > 0){
                     return true;
                 }
             }
@@ -922,7 +1003,7 @@ public class Jugador {
         if(!array.isEmpty()){
             int size = array.size();
             for(int i = 0; i < size; i++){
-                if(array.get(i).getCantTurno() == 0){
+                if(array.get(i).getCantTurno() == 0 && array.get(i).getVida() > 0){
                     return true;
                 }
             }
