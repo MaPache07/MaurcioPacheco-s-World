@@ -5,6 +5,7 @@
  */
 package Milicia;
 
+import Razas.CentroMando;
 import Razas.Cuartel;
 import Razas.Recolector;
 
@@ -19,6 +20,7 @@ public class Tropa implements TropaPlan{
     private Cuartel objetivoc;
     private Recolector objetivor;
     private Tropa objetivot;
+    private CentroMando objetivocm;
     
     @Override
     public void setNombre(String nombre) {
@@ -76,6 +78,11 @@ public class Tropa implements TropaPlan{
     }
     
     @Override
+    public void setObjetivoCM(CentroMando centro) {
+        this.objetivocm = centro;
+    }
+    
+    @Override
     public String getNombre() {
         return this.nombre;
     }
@@ -128,5 +135,10 @@ public class Tropa implements TropaPlan{
     @Override
     public Tropa getObjetivoT() {
         return this.objetivot;
+    }
+
+    @Override
+    public CentroMando getObjetivoCM() {
+        return this.objetivocm;
     }
 }

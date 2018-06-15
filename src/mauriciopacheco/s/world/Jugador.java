@@ -319,41 +319,30 @@ public class Jugador {
     }
     
     public void Recolectar(){
-        if (!ListRecolector.isEmpty()){
-            boolean flag = false;
+        if (ValidarRecolector(ListRecolector)){
             int size = ListRecolector.size(), cont = 0;
             for(int i = 0; i < size; i++){
                 if (ListRecolector.get(i).getCantTurn() == 0){
-                    flag = true;
-                }
-            }
-            if (flag == true){
-                for(int i = 0; i < size; i++){
-                    if (ListRecolector.get(i).getCantTurn() == 0){
-                        if(ListRecolector.get(i).getCantidad() != 0){
-                            if (ListRecolector.get(i).getCapacidad() == 3000){
-                                rec2 = rec2+ListRecolector.get(i).getCantidad();
-                                ListRecolector.get(i).setCantidad(0);
-                            }
-                            else{
-                                rec3 = rec3+ListRecolector.get(i).getCantidad();
-                                ListRecolector.get(i).setCantidad(0);
-                            }
+                    if(ListRecolector.get(i).getCantidad() != 0){
+                        if (ListRecolector.get(i).getCapacidad() == 3000){
+                            rec2 = rec2+ListRecolector.get(i).getCantidad();
+                            ListRecolector.get(i).setCantidad(0);
                         }
                         else{
-                            cont++;
+                            rec3 = rec3+ListRecolector.get(i).getCantidad();
+                            ListRecolector.get(i).setCantidad(0);
                         }
                     }
-                }
-                if(cont == size){
-                    System.out.println("Su recolector(es) ya contienen recurso");
-                }
-                else{
-                    System.out.println("Se ha recolectado recusrso(s)");
+                    else{
+                        cont++;
+                    }
                 }
             }
+            if(cont == size){
+                System.out.println("Su recolector(es) ya no contiene recurso");
+            }
             else{
-                System.out.println("Su recolector(es) sigue construyendose");
+                System.out.println("Se ha recolectado recusrso(s)");
             }
         }
         else{
@@ -395,77 +384,65 @@ public class Jugador {
     }
     
     public void Entrenar(){
-        if(!ListCuartel.isEmpty()){
-            boolean flag = false;
-            int size = ListCuartel.size();
-            for(int i = 0; i < size; i++){
-                if (ListCuartel.get(i).getCantTurn() == 0){
-                    flag = true;
+        if (ValidarCuartel(ListCuartel)){
+            int cont = 1, o;
+            Tropa tropa = new Tropa();
+            Scanner input = new Scanner(System.in);
+            System.out.println("Seleccione la tropa que desee entrenar");
+            while(cont < 3){
+                if(raza == 1){
+                    System.out.println(cont + "." + " " + tropam.SwitchMago(cont).getNombre());
+                    System.out.println("    "+nrec1+": "+tropam.SwitchMago(cont).getPrecio1()+" | "+nrec2+": "+tropam.SwitchMago(cont).getPrecio2()+" | "+nrec3+": "+tropam.SwitchMago(cont).getPrecio3());
                 }
+                if(raza == 2){
+                    System.out.println(cont + "." + " " + tropan.SwitchNinja(cont).getNombre());
+                    System.out.println("    "+nrec1+": "+tropan.SwitchNinja(cont).getPrecio1()+" | "+nrec2+": "+tropan.SwitchNinja(cont).getPrecio2()+" | "+nrec3+": "+tropan.SwitchNinja(cont).getPrecio3());
+                }
+                if(raza == 3){
+                    System.out.println(cont + "." + " " + tropap.SwitchPirata(cont).getNombre());
+                    System.out.println("    "+nrec1+": "+tropap.SwitchPirata(cont).getPrecio1()+" | "+nrec2+": "+tropap.SwitchPirata(cont).getPrecio2()+" | "+nrec3+": "+tropap.SwitchPirata(cont).getPrecio3());
+                }
+                cont++;
             }
-            if (flag == true){
-                int cont = 1, o;
-                Tropa tropa = new Tropa();
-                Scanner input = new Scanner(System.in);
-                System.out.println("Seleccione la tropa que desee entrenar");
-                while(cont < 3){
-                    if(raza == 1){
-                        System.out.println(cont + "." + " " + tropam.SwitchMago(cont).getNombre());
-                        System.out.println("    "+nrec1+": "+tropam.SwitchMago(cont).getPrecio1()+" | "+nrec2+": "+tropam.SwitchMago(cont).getPrecio2()+" | "+nrec3+": "+tropam.SwitchMago(cont).getPrecio3());
+            o = input.nextInt();
+            if (o == 1 || o == 2){
+                if(raza == 1){
+                    if (rec1 > tropam.SwitchMago(o).getPrecio1() && rec2 > tropam.SwitchMago(o).getPrecio2() && rec3 > tropam.SwitchMago(o).getPrecio3()){
+                        tropa = tropam.SwitchMago(o);
+                        ListTropa.add(tropa);
+                        System.out.println("Se empezó a entrenar la tropa seleccionada");
                     }
-                    if(raza == 2){
-                        System.out.println(cont + "." + " " + tropan.SwitchNinja(cont).getNombre());
-                        System.out.println("    "+nrec1+": "+tropan.SwitchNinja(cont).getPrecio1()+" | "+nrec2+": "+tropan.SwitchNinja(cont).getPrecio2()+" | "+nrec3+": "+tropan.SwitchNinja(cont).getPrecio3());
-                    }
-                    if(raza == 3){
-                        System.out.println(cont + "." + " " + tropap.SwitchPirata(cont).getNombre());
-                        System.out.println("    "+nrec1+": "+tropap.SwitchPirata(cont).getPrecio1()+" | "+nrec2+": "+tropap.SwitchPirata(cont).getPrecio2()+" | "+nrec3+": "+tropap.SwitchPirata(cont).getPrecio3());
-                    }
-                    cont++;
-                }
-                o = input.nextInt();
-                if (o == 1 || o == 2){
-                    if(raza == 1){
-                        if (rec1 > tropam.SwitchMago(o).getPrecio1() && rec2 > tropam.SwitchMago(o).getPrecio2() && rec3 > tropam.SwitchMago(o).getPrecio3()){
-                            tropa = tropam.SwitchMago(o);
-                            ListTropa.add(tropa);
-                            System.out.println("Se empezó a entrenar la tropa seleccionada");
-                        }
-                        else{
-                            System.out.println("No tiene suficientes recursos para entranar la tropa");
-                        }
-                    }
-                    if(raza == 2){
-                        if (rec1 > tropan.SwitchNinja(o).getPrecio1() && rec2 > tropan.SwitchNinja(o).getPrecio2() && rec3 > tropan.SwitchNinja(o).getPrecio3()){
-                            tropa = tropan.SwitchNinja(o);
-                            ListTropa.add(tropa);
-                            System.out.println("Se empezó a entrenar la tropa seleccionada");
-                        }
-                        else{
-                            System.out.println("No tiene suficientes recursos para entranar la tropa");
-                        }
-                    }
-                    if(raza == 3){
-                        if (rec1 > tropap.SwitchPirata(o).getPrecio1() && rec2 > tropap.SwitchPirata(o).getPrecio2() && rec3 > tropap.SwitchPirata(o).getPrecio3()){
-                            tropa = tropap.SwitchPirata(o);
-                            ListTropa.add(tropa);
-                            System.out.println("Se empezó a entrenar la tropa seleccionada");
-                        }
-                        else{
-                            System.out.println("No tiene suficientes recursos para entranar la tropa");
-                        }
+                    else{
+                        System.out.println("No tiene suficientes recursos para entranar la tropa");
                     }
                 }
-                else{
-                    System.out.println("Ingreso una opcion no valida");
+                if(raza == 2){
+                    if (rec1 > tropan.SwitchNinja(o).getPrecio1() && rec2 > tropan.SwitchNinja(o).getPrecio2() && rec3 > tropan.SwitchNinja(o).getPrecio3()){
+                        tropa = tropan.SwitchNinja(o);
+                        ListTropa.add(tropa);
+                        System.out.println("Se empezó a entrenar la tropa seleccionada");
+                    }
+                    else{
+                        System.out.println("No tiene suficientes recursos para entranar la tropa");
+                    }
+                }
+                if(raza == 3){
+                    if (rec1 > tropap.SwitchPirata(o).getPrecio1() && rec2 > tropap.SwitchPirata(o).getPrecio2() && rec3 > tropap.SwitchPirata(o).getPrecio3()){
+                        tropa = tropap.SwitchPirata(o);
+                        ListTropa.add(tropa);
+                        System.out.println("Se empezó a entrenar la tropa seleccionada");
+                    }
+                    else{
+                        System.out.println("No tiene suficientes recursos para entranar la tropa");
+                    }
                 }
             }
             else{
-                System.out.println("Su cuartel(es) se esta construyendo");
+                System.out.println("No ingreso una opcion valida");
             }
         }
         else{
-            System.out.println("No tiene creado ningun cuartel");
+            System.out.println("No tiene ningun cuartel creado hasta el momento");
         }
     }
     
@@ -474,9 +451,9 @@ public class Jugador {
             boolean flag = false, flag1 = false, flag2 = false;
             int size = ListConstructor.size();
             for(int i = 0; i < size; i++){
-                if (ListConstructor.get(i).getCantTurn() == 0){
+                if (ListConstructor.get(i).getCantTurn() == 0 && ListConstructor.get(i).getVida() > 0){
                     flag = true;
-                    if (ListConstructor.get(i).getCodigo() == 2){
+                    if (ListConstructor.get(i).getCodigo() == 2 && ListConstructor.get(i).getVida() > 0){
                         flag2 = true;
                     }
                     else{
@@ -594,28 +571,15 @@ public class Jugador {
     }
     
     public void MostrarTropas(){
-        boolean flagt = true, flagv = true;
-        if (!ListTropa.isEmpty()){
-            int size = ListTropa.size();
-            for(int i = 0; i < size; i++){
-                if (ListTropa.get(i).getCantTurno() == 0){
-                    System.out.println("Tropa:");
-                    System.out.println("    - " + ListTropa.get(i).getNombre());
-                    flagt = false;
-                }
+        if(ValidarTropa(ListTropa) || ValidarTropa(ListVehiculo)){
+            if(ValidarTropa(ListTropa)){
+                MostrarTropa(ListTropa, 0, false);
+            }
+            if(ValidarTropa(ListVehiculo)){
+                MostrarTropa(ListVehiculo, 0, false);
             }
         }
-        if (!ListVehiculo.isEmpty()){
-            int size = ListVehiculo.size();
-            for(int i = 0; i < size; i++){
-                if (ListVehiculo.get(i).getCantTurno() == 0){
-                    System.out.println("Vehiculo:");
-                    System.out.println("    - " + ListVehiculo.get(i).getNombre());
-                    flagv = false;
-                }
-            }
-        }
-        if (flagt && flagv){
+        else{
             System.out.println("No tiene ningun tropa/vehiculo creado hasta el momento");
         }
     }
@@ -670,8 +634,10 @@ public class Jugador {
                 flag = false;
             }
             if ((ValidarRecolector(G) || ValidarRecolector(R) || ValidarCuartel(C) || ValidarCuartel(CV)) && flag){
+                flag = false;
                 int contg = 1;
                 Scanner input2 = new Scanner(System.in);
+                boolean ataque = false;
                 System.out.println("Seleccione la edificacion enemiga que desee atacar");
                 int contr = MostrarRecolector(G, contg, true);
                 int contc = MostrarRecolector(R, contr, true);
@@ -680,21 +646,47 @@ public class Jugador {
                 o = input2.nextInt();
                 if (o >= contg && o < contr){
                     tropa.setObjetivoR(G.get(o-contg));
-                    System.out.println("La tropa seleccionada salio al ataque");
+                    ataque = true;
                 }
                 if (o >= contr && o < contc){
                     tropa.setObjetivoR(R.get(o-contr));
-                    System.out.println("La tropa seleccionada salio al ataque");
+                    ataque = true;
                 }
                 if (o >= contc && o < contcv){
                     tropa.setObjetivoC(C.get(o-contc));
-                    System.out.println("La tropa seleccionada salio al ataque");
+                    ataque = true;
                 }
                 if (o >= contcv && o < contf){
                     tropa.setObjetivoC(CV.get(o-contcv));
-                    System.out.println("La tropa seleccionada salio al ataque");
+                    ataque = true;
+                }
+                if(ataque){
+                    if(tropa.getLlegada() == 0){
+                        System.out.println("La tropa empezara el ataque");
+                    }
+                    else{
+                        System.out.println("La tropa seleccionada salio al ataque");
+                    }
                 }
                 if (o < contg || o > contf){
+                    System.out.println("No ingreso una opcion valida");
+                }
+            }
+            if (flag){
+                Scanner input = new Scanner(System.in);
+                System.out.println("Seleccione la edificacion enemiga que desee atacar");
+                System.out.println("1. " + CM.get(0).getNombre());
+                o = input.nextInt();
+                if(o == 1){
+                    tropa.setObjetivoCM(CM.get(0));
+                    if(tropa.getLlegada() == 0){
+                        System.out.println("La tropa empezara el ataque");
+                    }
+                    else{
+                        System.out.println("La tropa seleccionada salio al ataque");
+                    }
+                }
+                else{
                     System.out.println("No ingreso una opcion valida");
                 }
             }
@@ -707,7 +699,7 @@ public class Jugador {
         if (!ListRecolector.isEmpty()){
             int size = ListRecolector.size(), cant = 0;
             for(int i = 0; i < size; i++){
-                if (ListRecolector.get(i).getCantTurn() == 0){
+                if (ListRecolector.get(i).getCantTurn() == 0 && ListRecolector.get(i).getVida() > 0){
                     cant = ListRecolector.get(i).getCantidad()+ListRecolector.get(i).getCantxTurno();
                     ListRecolector.get(i).setCantidad(cant);
                 }
@@ -716,7 +708,7 @@ public class Jugador {
         if (!ListGenerador.isEmpty()){
             int size = ListGenerador.size();
             for(int i = 0; i < size; i++){
-                if (ListGenerador.get(i).getCantTurn() == 0){
+                if (ListGenerador.get(i).getCantTurn() == 0 && ListGenerador.get(i).getVida() > 0){
                     rec1 = rec1+ListGenerador.get(i).getCantxTurno();
                 }
             }
@@ -863,12 +855,13 @@ public class Jugador {
                     mensaje2 = "La edificacion " + array.get(i).getObjetivoR().getNombre() + " ha recibido " + ataque + " de daño";
                     mensajea2.add(mensaje2);
                     if (golpe == 0){
-                        array.get(i).setObjetivoR(null);
                         mensaje1 = "La tropa " + array.get(i).getNombre() + " ha destruido la edificacion " + array.get(i).getObjetivoR().getNombre();
                         mensaje2 = "La edificacion " + array.get(i).getObjetivoR().getNombre() + " ha sido destruida";
                         mensajea1.add(mensaje1);
                         mensajea2.add(mensaje2);
                         mensaje1 = "Selecciona otro objetivo para la tropa " + array.get(i).getNombre();
+                        mensajea1.add(mensaje1);
+                        array.get(i).setObjetivoR(null);
                     }
                 }
             }
@@ -885,12 +878,13 @@ public class Jugador {
                     mensaje2 = "La edificacion " + array.get(i).getObjetivoC().getNombre() + " ha recibido " + ataque + " de daño";
                     mensajea2.add(mensaje2);
                     if (golpe == 0){
-                        array.get(i).setObjetivoC(null);
                         mensaje1 = "La tropa " + array.get(i).getNombre() + " ha destruido la edificacion " + array.get(i).getObjetivoC().getNombre();
                         mensaje2 = "La edificacion " + array.get(i).getObjetivoC().getNombre() + " ha sido destruida";
                         mensajea1.add(mensaje1);
                         mensajea2.add(mensaje2);
                         mensaje1 = "Selecciona otro objetivo para la tropa " + array.get(i).getNombre();
+                        mensajea1.add(mensaje1);
+                        array.get(i).setObjetivoC(null);
                     }
                 }
             }
@@ -907,12 +901,36 @@ public class Jugador {
                     mensaje2 = "La tropa " + array.get(i).getObjetivoT().getNombre() + " ha recibido " + ataque + " de daño";
                     mensajea2.add(mensaje2);
                     if (golpe == 0){
-                        array.get(i).setObjetivoT(null);
                         mensaje1 = "La tropa " + array.get(i).getNombre() + " ha destruido la edificacion " + array.get(i).getObjetivoT().getNombre();
                         mensaje2 = "La edificacion " + array.get(i).getObjetivoT().getNombre() + " ha sido destruida";
                         mensajea1.add(mensaje1);
                         mensajea2.add(mensaje2);
                         mensaje1 = "Selecciona otro objetivo para la tropa " + array.get(i).getNombre();
+                        mensajea1.add(mensaje1);
+                        array.get(i).setObjetivoT(null);
+                    }
+                }
+            }
+            if (array.get(i).getObjetivoCM() != null){
+                if (array.get(i).getLlegada() == 0){
+                    ataque = array.get(i).getAtaque();
+                    golpe = array.get(i).getObjetivoCM().getVida() - ataque;
+                    if (golpe <= 0){
+                        golpe = 0;
+                    }
+                    array.get(i).getObjetivoCM().setVida(golpe);
+                    mensaje1 = "La tropa " + array.get(i).getNombre() + " a hecho " + ataque + " de daño";
+                    mensajea1.add(mensaje1);
+                    mensaje2 = "El centro de mando " + array.get(i).getObjetivoCM().getNombre() + " ha recibido " + ataque + " de daño";
+                    mensajea2.add(mensaje2);
+                    if (golpe == 0){
+                        mensaje1 = "La tropa " + array.get(i).getNombre() + " ha destruido el centro de mando " + array.get(i).getObjetivoCM().getNombre();
+                        mensaje2 = "El centro de mando " + array.get(i).getObjetivoCM().getNombre() + " ha sido destruido";
+                        mensajea1.add(mensaje1);
+                        mensajea2.add(mensaje2);
+                        mensaje1 = "Selecciona otro objetivo para la tropa " + array.get(i).getNombre();
+                        mensajea1.add(mensaje1);
+                        array.get(i).setObjetivoT(null);
                     }
                 }
             }

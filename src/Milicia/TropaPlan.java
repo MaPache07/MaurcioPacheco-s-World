@@ -23,6 +23,7 @@ public interface TropaPlan {
     public void setObjetivoR(Recolector recolector);
     public void setObjetivoC(Cuartel cuartel);
     public void setObjetivoT(Tropa tropa);
+    public void setObjetivoCM(CentroMando centro);
     public String getNombre();
     public int getVida();
     public int getAtaque();
@@ -34,4 +35,5 @@ public interface TropaPlan {
     public Recolector getObjetivoR();
     public Cuartel getObjetivoC();
     public Tropa getObjetivoT();
+    public CentroMando getObjetivoCM();
 }
