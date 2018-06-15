@@ -80,9 +80,9 @@ public class Menu {
     }
     
     public void Juego(int jugador){
-        boolean juego = true, turno1, turno2;
+        boolean turno1, turno2;
         int fase = 1;
-        while(juego){
+        while(true){
             turno1 = true; 
             turno2 = true;
             System.out.println("");
@@ -162,12 +162,43 @@ public class Menu {
             jugador1.RecolectarRecurco();
             jugador1.Construccion(Mensaje1);
             jugador1.Entrenamiento(Mensaje1);
-            jugador1.Atacando(Mensaje1, Mensaje2);
+            jugador1.Atacando(Mensaje1, Mensaje2, jugador2.ListEnemigo);
             jugador2.RecolectarRecurco();
             jugador2.Construccion(Mensaje2);
             jugador2.Entrenamiento(Mensaje2);
-            jugador2.Atacando(Mensaje2, Mensaje1);
+            jugador2.Atacando(Mensaje2, Mensaje1, jugador1.ListEnemigo);
             fase++;
+            if(jugador1.ListCentroMando.get(0).getVida() == 0 && jugador2.ListCentroMando.get(0).getVida() == 0){
+                System.out.println("");
+                System.out.println("|----------------------------------------------------|");
+                System.out.println("");
+                MostrarM(Mensaje1);
+                MostrarM(Mensaje2);
+                System.out.println("");
+                System.out.println("|-----------------------EMPATE-----------------------|");
+                System.out.println("");
+                break;
+            }
+            if(jugador2.ListCentroMando.get(0).getVida() == 0){
+                System.out.println("");
+                System.out.println("|----------------------------------------------------|");
+                System.out.println("");
+                MostrarM(Mensaje1);
+                System.out.println("");
+                System.out.println("|-----------------JUGADOR #1 GANADOR-----------------|");
+                System.out.println("");
+                break;
+            }
+            if(jugador1.ListCentroMando.get(0).getVida() == 0){
+                System.out.println("");
+                System.out.println("|----------------------------------------------------|");
+                System.out.println("");
+                MostrarM(Mensaje2);
+                System.out.println("");
+                System.out.println("|-----------------JUGADOR #2 GANADOR-----------------|");
+                System.out.println("");
+                break;
+            }
         }
     }
     

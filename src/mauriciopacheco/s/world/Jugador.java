@@ -30,6 +30,7 @@ public class Jugador {
     String nrec1, nrec2, nrec3;
     ArrayList<Tropa> ListTropa = new ArrayList<>();
     ArrayList<Tropa> ListVehiculo = new ArrayList<>();
+    ArrayList<Tropa> ListEnemigo = new ArrayList<>();
     ArrayList<Cuartel> ListCuartel = new ArrayList<>();
     ArrayList<Cuartel> ListConstructor = new ArrayList<>();
     ArrayList<Recolector> ListRecolector = new ArrayList<>();
@@ -602,7 +603,7 @@ public class Jugador {
                     Atacar(CM, G, R, C, CV);
                     break;
                 case 2:
-                    
+                    Defender();
                     break;
                 case 3:
                     flag = false;
@@ -646,18 +647,30 @@ public class Jugador {
                 o = input2.nextInt();
                 if (o >= contg && o < contr){
                     tropa.setObjetivoR(G.get(o-contg));
+                    tropa.setObjetivoC(null);
+                    tropa.setObjetivoT(null);
+                    tropa.setObjetivoCM(null);
                     ataque = true;
                 }
                 if (o >= contr && o < contc){
                     tropa.setObjetivoR(R.get(o-contr));
+                    tropa.setObjetivoC(null);
+                    tropa.setObjetivoT(null);
+                    tropa.setObjetivoCM(null);
                     ataque = true;
                 }
                 if (o >= contc && o < contcv){
                     tropa.setObjetivoC(C.get(o-contc));
+                    tropa.setObjetivoR(null);
+                    tropa.setObjetivoT(null);
+                    tropa.setObjetivoCM(null);
                     ataque = true;
                 }
                 if (o >= contcv && o < contf){
                     tropa.setObjetivoC(CV.get(o-contcv));
+                    tropa.setObjetivoR(null);
+                    tropa.setObjetivoT(null);
+                    tropa.setObjetivoCM(null);
                     ataque = true;
                 }
                 if(ataque){
@@ -679,11 +692,65 @@ public class Jugador {
                 o = input.nextInt();
                 if(o == 1){
                     tropa.setObjetivoCM(CM.get(0));
+                    tropa.setObjetivoR(null);
+                    tropa.setObjetivoC(null);
+                    tropa.setObjetivoT(null);
                     if(tropa.getLlegada() == 0){
                         System.out.println("La tropa empezara el ataque");
                     }
                     else{
                         System.out.println("La tropa seleccionada salio al ataque");
+                    }
+                }
+                else{
+                    System.out.println("No ingreso una opcion valida");
+                }
+            }
+        }
+    }
+    
+    public void Defender(){
+        if (ValidarTropa(ListVehiculo) || ValidarTropa(ListTropa)){
+            boolean flag = true;
+            Tropa tropa = new Tropa();
+            int contt = 1, o, op = 0;
+            Scanner input1 = new Scanner(System.in);
+            System.out.println("Seleccione la tropa a enviar");
+            int contv = MostrarTropa(ListTropa, contt, true);
+            int contf = MostrarTropa(ListVehiculo, contv, true);
+            o = input1.nextInt();
+            if (o >= contt && o <contv ){
+                tropa = ListTropa.get(o-contt);
+                op = 1;
+            }
+            if (o >= contv && o < contf){
+                tropa = ListVehiculo.get(o-contv);
+                op = 2;
+            }
+            if (o < contt || o > contf){
+                System.out.println("No ingreso una opcion valida");
+                flag = false;
+            }
+            if(ValidarTropa(ListEnemigo) && flag){
+                int n;
+                Scanner input = new Scanner(System.in);
+                n = MostrarTropa(ListEnemigo, 1, true);
+                o = input.nextInt();
+                if(o >= 1 && o < n){
+                    tropa.setObjetivoT(ListEnemigo.get(o-1));
+                    tropa.setObjetivoR(null);
+                    tropa.setObjetivoC(null);
+                    tropa.setObjetivoCM(null);
+                    if(tropa.getLlegada() != 0){
+                        System.out.println("La tropa vendra de regreso para empezar el ataque");
+                    }
+                    else{
+                        if(op == 1 && tropa.getLlegada() == 2){
+                            System.out.println("La tropa empezara el ataque");
+                        }
+                        if(op == 2 && tropa.getLlegada() == 1){
+                            System.out.println("La tropa empezara el ataque");
+                        }
                     }
                 }
                 else{
@@ -809,35 +876,60 @@ public class Jugador {
         return null;
     }
     
-    public void Atacando(ArrayList mensaje1, ArrayList mensaje2){
+    public void Atacando(ArrayList mensaje1, ArrayList mensaje2, ArrayList E){
         if(ValidarTropa(ListTropa)){
-            AtacandoBase(ListTropa, mensaje1, mensaje2);
-            Llegada(ListTropa, mensaje1);
+            AtacandoBase(ListTropa, mensaje1, mensaje2, 1);
+            Llegada(ListTropa, mensaje1, E, 1);
         }
         if(ValidarTropa(ListVehiculo)){
-            AtacandoBase(ListVehiculo, mensaje1, mensaje2);
-            Llegada(ListVehiculo, mensaje1);
+            AtacandoBase(ListVehiculo, mensaje1, mensaje2, 2);
+            Llegada(ListVehiculo, mensaje1, E, 2);
         }
     }
     
-    public void Llegada(ArrayList<Tropa> array, ArrayList mensajea){
+    public void Llegada(ArrayList<Tropa> array, ArrayList mensajea, ArrayList<Tropa> E, int n){
         String mensaje;
         int size = array.size(), llegada;
         for(int i = 0; i < size; i++){
-            if(array.get(i).getObjetivoR() != null || array.get(i).getObjetivoC() != null || array.get(i).getObjetivoT() != null){
+            if(array.get(i).getObjetivoR() != null || array.get(i).getObjetivoC() != null || array.get(i).getObjetivoCM() != null){
                 if (array.get(i).getLlegada() != 0){
                     llegada = array.get(i).getLlegada()-1;
                     array.get(i).setLlegada(llegada);
                     if (array.get(i).getLlegada() == 0){
                         mensaje = "La tropa/vehiculo " + array.get(i).getNombre() + " ha llegado a la base enemiga";
                         mensajea.add(mensaje);
+                        E.add(array.get(i));
+                    }
+                }
+            }
+            if(array.get(i).getObjetivoT() != null){
+                if(array.get(i).getLlegada() == 0){
+                    llegada = array.get(i).getLlegada()+1;
+                    array.get(i).setLlegada(llegada);
+                    if(n == 2){
+                        mensaje = "El vehiculo " + array.get(i).getNombre() + " ha regresado a la base";
+                        mensajea.add(mensaje);
+                        if(E.contains(array.get(i))){
+                            E.remove(array.get(i));
+                        }
+                    }
+                }
+                if (array.get(i).getLlegada() == 1 && n == 1){
+                    llegada = array.get(i).getLlegada()+1;
+                    array.get(i).setLlegada(llegada);
+                    if (array.get(i).getLlegada() == 2){
+                        mensaje = "La tropa " + array.get(i).getNombre() + " ha regresado a la base";
+                        mensajea.add(mensaje);
+                        if(E.contains(array.get(i))){
+                            E.remove(array.get(i));
+                        }
                     }
                 }
             }
         }
     }
     
-    public void AtacandoBase(ArrayList<Tropa> array, ArrayList mensajea1, ArrayList mensajea2){
+    public void AtacandoBase(ArrayList<Tropa> array, ArrayList mensajea1, ArrayList mensajea2, int n){
         String mensaje1, mensaje2;
         int ataque, golpe;
         int size = array.size(), llegada;
@@ -889,7 +981,7 @@ public class Jugador {
                 }
             }
             if (array.get(i).getObjetivoT() != null){
-                if (array.get(i).getLlegada() == 0){
+                if ((array.get(i).getLlegada() == 2 && n == 1) || (array.get(i).getLlegada() == 1 && n == 2)){
                     ataque = array.get(i).getAtaque();
                     golpe = array.get(i).getObjetivoT().getVida() - ataque;
                     if (golpe <= 0){
@@ -901,8 +993,8 @@ public class Jugador {
                     mensaje2 = "La tropa " + array.get(i).getObjetivoT().getNombre() + " ha recibido " + ataque + " de daño";
                     mensajea2.add(mensaje2);
                     if (golpe == 0){
-                        mensaje1 = "La tropa " + array.get(i).getNombre() + " ha destruido la edificacion " + array.get(i).getObjetivoT().getNombre();
-                        mensaje2 = "La edificacion " + array.get(i).getObjetivoT().getNombre() + " ha sido destruida";
+                        mensaje1 = "La tropa " + array.get(i).getNombre() + " ha derrotado al enemigo " + array.get(i).getObjetivoT().getNombre();
+                        mensaje2 = "La tropa " + array.get(i).getObjetivoT().getNombre() + " ha sido derrotada";
                         mensajea1.add(mensaje1);
                         mensajea2.add(mensaje2);
                         mensaje1 = "Selecciona otro objetivo para la tropa " + array.get(i).getNombre();
@@ -928,8 +1020,6 @@ public class Jugador {
                         mensaje2 = "El centro de mando " + array.get(i).getObjetivoCM().getNombre() + " ha sido destruido";
                         mensajea1.add(mensaje1);
                         mensajea2.add(mensaje2);
-                        mensaje1 = "Selecciona otro objetivo para la tropa " + array.get(i).getNombre();
-                        mensajea1.add(mensaje1);
                         array.get(i).setObjetivoT(null);
                     }
                 }
